@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>BIRT Chart JS API Samples</title>
+<script type="text/javascript" src="js/chartAjaxAPI.js"></script>
+<script type="text/javascript">
+function generateChart()
+{
+	var width = document.getElementById("width").value;
+	var height = document.getElementById("height").value;   
+	var url = document.getElementById("url").value;
+	
+	var cm = new ChartModel( width, height);
+	cm.setType(document.getElementById("type").value);
+	cm.setFormat(document.getElementById("format").value);
+	cm.setDimension(document.getElementById("dimension").value);
+	cm.setTitle(document.getElementById("title").value);	
+	cm.setCategories(new Array('MSFT','ACTU','JAVA','GOOGLE','IBM'));
+	cm.setValues(new Array(5,4,8,2,6));
+
+	var chart = new BirtChart();	
+	if(url)
+	{
+		chart.setDataURL(url);
+		document.getElementById("xml").innerText=url;
+	}
+	else
+	{
+		chart.setDataXML(cm);	
+		document.getElementById("xml").innerText=cm.getXML();
+	}
+	chart.render("chartDiv");
+}
+</script>
+</head>
+<body onload="generateChart()">
+Type:
+<select id="type">
+<option value="bar">Bar</option>
+<option value="pyramid">Pyramid</option>
+<option value="tube">Tube</option>
+<option value="cone">Cone</option>
+<option value="line">Line</option>
+<option value="area">Area</option>
+<option value="scatter">Scatter</option>
+<option value="pie">Pie</option>
+</select>
+Dimension:
+<select id="dimension">
+<option value="2d">2D</option>
+<option value="2.5d">2.5D</option>
+<option value="3d">3D</option>
+</select>
+Format:
+<select id="format">
+<option value="png">PNG</option>
+<option value="jpg">JPG</option>
+<option value="gif">GIF</option>
+<option value="bmp">BMP</option>
+</select>
+Title:
+<input type="text" size="20" id="title" value="JS API test">
+<br />
+Width:
+<input type="text" size="20" id="width" value="400">
+Height:
+<input type="text" size="20" id="height" value="300">
+<br />
+URL of data file:
+<input type="file" size="100" id="url" value="data.xml">
+<br />
+XML or URL:
+<div id="xml" style="background-color: silver;"></div>
+<input type="button" value="Display" onclick="generateChart()">
+<div id="chartDiv"></div>
+</body>
+</html>
