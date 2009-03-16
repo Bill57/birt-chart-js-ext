@@ -21,6 +21,10 @@ public class ChartModel
 	private final List<ChartDataSet> datasets = new ArrayList<ChartDataSet>( 4 );
 	private String title;
 	private String script;
+	private boolean stacked = false;
+	private boolean colorByCategory = false;
+	private boolean showLegend = true;
+	private boolean showLabel = false;
 
 	public ChartModel( String type, String dimension, String format,
 			double width, double height )
@@ -120,5 +124,76 @@ public class ChartModel
 	public String getScript( )
 	{
 		return script;
+	}
+
+	/**
+	 * Stacks the multiple data if possible. The charts supporting the stacked
+	 * state include: Bar, Tube, Pyramid, Cone, Line, Area.
+	 * 
+	 * @param stacked
+	 *            The stacked to set.
+	 */
+	public void setStacked( boolean stacked )
+	{
+		this.stacked = stacked;
+	}
+
+	/**
+	 * @return Returns the stacked.
+	 */
+	public boolean isStacked( )
+	{
+		return stacked;
+	}
+
+	/**
+	 * @param colorByCategory
+	 *            The colorByCategory to set.
+	 */
+	public void setColorByCategory( boolean colorByCategory )
+	{
+		this.colorByCategory = colorByCategory;
+	}
+
+	/**
+	 * @return Returns the colorByCategory.
+	 */
+	public boolean isColorByCategory( )
+	{
+		return colorByCategory;
+	}
+
+	/**
+	 * @param showLegend
+	 *            The showLegend to set.
+	 */
+	public void setShowLegend( boolean showLegend )
+	{
+		this.showLegend = showLegend;
+	}
+
+	/**
+	 * @return Returns the showLegend.
+	 */
+	public boolean isShowLegend( )
+	{
+		return showLegend;
+	}
+
+	/**
+	 * @param showLabel
+	 *            The showLabel to set.
+	 */
+	public void setShowLabel( boolean showLabel )
+	{
+		this.showLabel = showLabel;
+	}
+
+	/**
+	 * @return Returns the showLabel.
+	 */
+	public boolean isShowLabel( )
+	{
+		return showLabel;
 	}
 }

@@ -79,11 +79,20 @@ public class ChartConvertor
 					.getCaption( )
 					.setValue( chart.getTitle( ) );
 		}
+		else
+		{
+			cm.getTitle( ).getLabel( ).setVisible( false );
+		}
 
 		if ( chart.getScript( ) != null )
 		{
 			cm.setScript( chart.getScript( ) );
 		}
+
+		cm.getLegend( ).setVisible( chart.isShowLegend( ) );
+		cm.getLegend( )
+				.setItemType( chart.isColorByCategory( ) ? LegendItemType.CATEGORIES_LITERAL
+						: LegendItemType.SERIES_LITERAL );
 
 		// Add X series
 		Series seCategory = SeriesImpl.create( );
@@ -123,9 +132,11 @@ public class ChartConvertor
 				categorySD.getSeriesDefinitions( ).add( orthSD );
 			}
 			orthSD.getSeries( ).add( seValue );
-			orthSD.getSeriesPalette( ).shift( 0 );
+			orthSD.getSeriesPalette( ).shift( -i );
 			seValue.getDataDefinition( )
 					.add( QueryImpl.create( VALUE_EXPR + i ) );
+			seValue.setStacked( chart.isStacked( ) );
+			seValue.getLabel( ).setVisible( chart.isShowLabel( ) );
 
 			List<Trigger> triggers = orthSD.getSeries( ).get( 0 ).getTriggers( );
 			if ( chart.getDatasets( ).size( ) > 0 )

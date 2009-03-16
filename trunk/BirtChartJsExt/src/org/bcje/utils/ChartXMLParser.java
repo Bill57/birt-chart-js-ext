@@ -15,7 +15,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
 public class ChartXMLParser
 {
 
@@ -52,6 +51,12 @@ public class ChartXMLParser
 
 			String title = chartAttr.getNamedItem( "title" ).getNodeValue( );
 			chart.setTitle( title );
+
+			chart.setStacked( getBooleanProperty( chartAttr, "stacked" ) );
+			chart.setColorByCategory( getBooleanProperty( chartAttr,
+					"colorByCategory" ) );
+			chart.setShowLabel( getBooleanProperty( chartAttr, "showLabel" ) );
+			chart.setShowLegend( getBooleanProperty( chartAttr, "showLegend" ) );
 
 			NodeList nodes = root.getChildNodes( );
 			for ( int i = 0; i < nodes.getLength( ); i++ )
@@ -127,5 +132,12 @@ public class ChartXMLParser
 			return node.getNodeValue( );
 		}
 		return null;
+	}
+
+	private boolean getBooleanProperty( NamedNodeMap chartAttr,
+			String propertyName )
+	{
+		String str = chartAttr.getNamedItem( propertyName ).getNodeValue( );
+		return str != null && Boolean.parseBoolean( str );
 	}
 }
