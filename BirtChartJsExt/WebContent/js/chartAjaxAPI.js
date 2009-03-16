@@ -1,5 +1,5 @@
-BirtChart = function() {
-
+BirtChart = function(domain) {
+	this.domain = domain;
 }
 
 BirtChart.prototype = {
@@ -19,6 +19,9 @@ BirtChart.prototype = {
 			url = "chart?dataURL=" + this.dataURL;
 		} else {
 			url = "chart?dataXML=" + this.dataXML;
+		}
+		if (this.domain) {
+			url = this.domain + url;
 		}
 		var req;
 		if (typeof XMLHttpRequest != "undefined") {
@@ -116,6 +119,18 @@ ChartModel.prototype = {
 	setDimension : function(dimension) {
 		this.dimension = dimension;
 	},
+	setStacked : function(stacked) {
+		this.stacked = stacked;
+	},
+	setColorByCategory : function(colorByCategory) {
+		this.colorByCategory = colorByCategory;
+	},
+	setShowLegend : function(showLegend) {
+		this.showLegend = showLegend;
+	},
+	setShowLabel : function(showLabel) {
+		this.showLabel = showLabel;
+	},
 	setTitle : function(title) {
 		this.title = title;
 	},
@@ -142,6 +157,10 @@ ChartModel.prototype = {
 		writer.attribute("height", this.height);
 		writer.attribute("dimension", this.dimension);
 		writer.attribute("title", this.title);
+		writer.attribute("stacked", this.stacked);
+		writer.attribute("colorByCategory", this.colorByCategory);
+		writer.attribute("showLegend", this.showLegend);
+		writer.attribute("showLabel", this.showLabel);
 
 		if (this.categories) {
 			writer.openTag("categories");

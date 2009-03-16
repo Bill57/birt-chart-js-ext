@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>BIRT Chart JS API Samples</title>
+<title>BIRT Chart JS API Viewer</title>
 <script type="text/javascript" src="js/chartAjaxAPI.js"></script>
 <script type="text/javascript">
 function generateChart()
@@ -15,11 +15,15 @@ function generateChart()
 	cm.setType(document.getElementById("type").value);
 	cm.setFormat(document.getElementById("format").value);
 	cm.setDimension(document.getElementById("dimension").value);
+	cm.setStacked(document.getElementById("stacked").value);
+	cm.setColorByCategory(document.getElementById("colorByCategory").value);
+	cm.setShowLabel(document.getElementById("showLabel").value);
+	cm.setShowLegend(document.getElementById("showLegend").value);
 	cm.setTitle(document.getElementById("title").value);	
-	cm.setCategories(new Array('MSFT','ACTU','JAVA','GOOGLE','IBM'));
-	cm.setValues(new Array(5,4,8,2,6));
+	cm.setCategories(document.getElementById("categories").value.split(","));
+	cm.setValues(document.getElementById("sets").value.split(","));
 
-	var chart = new BirtChart();	
+	var chart = new BirtChart("");
 	if(url)
 	{
 		chart.setDataURL(url);
@@ -35,6 +39,12 @@ function generateChart()
 </script>
 </head>
 <body onload="generateChart()">
+Choose a data XML file:
+<input type="file" size="100" id="url" value="data.xml">
+<br />
+<p />
+Or use following settings:
+<br />
 Type:
 <select id="type">
 <option value="bar">Bar</option>
@@ -54,6 +64,7 @@ Dimension:
 </select>
 Format:
 <select id="format">
+<option value="svg">SVG</option>
 <option value="png">PNG</option>
 <option value="jpg">JPG</option>
 <option value="gif">GIF</option>
@@ -62,15 +73,39 @@ Format:
 Title:
 <input type="text" size="20" id="title" value="JS API test">
 <br />
+Stacked:
+<select id="stacked">
+<option value="true">true</option>
+<option value="false">false</option>
+</select>
+Color By Category:
+<select id="colorByCategory">
+<option value="true">true</option>
+<option value="false">false</option>
+</select>
+Show Legend:
+<select id="showLegend">
+<option value="true">true</option>
+<option value="false">false</option>
+</select>
+Show Label:
+<select id="showLabel">
+<option value="true">true</option>
+<option value="false">false</option>
+</select>
+<br />
 Width:
 <input type="text" size="20" id="width" value="400">
 Height:
 <input type="text" size="20" id="height" value="300">
 <br />
-URL of data file:
-<input type="file" size="100" id="url" value="data.xml">
+Data Categories:
+<input type="text" id="categories" size="100" value="MSFT,ACTU,JAVA,GOOGLE,IBM">
 <br />
-XML or URL:
+Data Sets:
+<input type="text" id="sets" size="100" value="5,4,8,2,6">
+<br />
+Generated XML:
 <div id="xml" style="background-color: silver;"></div>
 <input type="button" value="Display" onclick="generateChart()">
 <div id="chartDiv"></div>

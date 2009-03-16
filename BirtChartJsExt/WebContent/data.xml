@@ -1,4 +1,4 @@
-<chart type='tube' title='bar title' dimension='2.5d' format='png' width='500' height='400'>
+<chart type='cone' title='bar title' dimension='2.5d' format='png' width='500' height='400' stacked="true" colorByCategory="false" showLegend="true" showLabel="true">
 <categories>
 <category label='Australia'/>
 <category label='China'/>
@@ -7,7 +7,7 @@
 <dataset>
 <set value='250' url="http://actuate.com" tooltip="123"/>
 <set value='800' tooltip="china"/>
-<set value='500' url="http://shanghai/welcome"/>
+<set value='500' url="index.html"/>
 </dataset>
 <dataset>
 <set value='300' />
