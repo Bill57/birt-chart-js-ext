@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Live Chart sample</title>
+<script type="text/javascript" src="js/chartAjaxAPI.js"></script>
+<script type="text/javascript">
+var count = 10;
+var category = new Array('MSFT','ACTU','JAVA','GOOGLE','IBM');
+var values = new Array(2,4,3,5,1);
+function generateChart()
+{	
+	if(count>0)
+	{
+		window.setTimeout(generateChart, 2000);
+		count--;
+		shiftArray(category);
+		shiftArray(values);
+	}
+	else
+	{
+		return;
+	}
+	
+	var cm = new ChartModel( 400, 300);
+	cm.setType("tube");
+	cm.setFormat("png");
+	cm.setDimension("2.5d");
+	cm.setTitle("live chart test");	
+	cm.setCategories(category);
+	cm.setValues(values);
+	var chart = new BirtChart();
+	chart.setDataXML(cm);	
+	//chart.setDataURL("data.xml");
+	chart.render("chartDiv");	
+}
+
+function shiftArray(array)
+{
+	var tmp = array[0];
+	for( var i=1;i<array.length;i++)
+	{
+		array[i-1]=array[i];
+	}
+	array[array.length-1] = tmp;
+}
+
+</script>
+</head>
+<body onload="generateChart()">
+<div id="chartDiv"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>AJAX test</title>
+<script type="text/javascript">
+var req;
+
+function validate() {
+   var idField = document.getElementById("userid");
+   var url = "validate?id=" + encodeURIComponent(idField.value);
+   if (typeof XMLHttpRequest != "undefined") {
+       req = new XMLHttpRequest();
+   } else if (window.ActiveXObject) {
+       req = new ActiveXObject("Microsoft.XMLHTTP");
+   }
+   req.open("GET", url, true);
+   req.onreadystatechange = callback;
+   req.send(null);
+}
+function callback() {
+    if (req.readyState == 4) {
+        if (req.status == 200) {
+            // update the HTML DOM based on whether or not message is valid
+            parseMessage();
+        }
+    }
+}
+function parseMessage() {
+	 var message = req.responseXML.getElementsByTagName("message")[0];
+	 setMessage(message.childNodes[0].nodeValue);
+	}
+/*
+function setMessage(message) {
+    var mdiv = document.getElementById("userIdMessage");
+    if (message == "invalid") {
+       mdiv.innerHTML = "<div style=\"color:red\">Invalid User Id</ div>";
+    } else {
+       mdiv.innerHTML = "<div style=\"color:green\">Valid User Id</ div>";
+    }
+}*/
+function setMessage(message) {
+    var userMessageElement = document.getElementById("userIdMessage");
+    var messageText;
+    if (message == "invalid") {
+        userMessageElement.style.color = "red";
+        messageText = "Invalid User Id";
+    } else {
+        userMessageElement.style.color = "green";
+        messageText = "Valid User Id";
+    }
+    var messageBody = document.createTextNode(messageText);
+    // if the messageBody element has been created simple replace it otherwise
+    // append the new element
+    if (userMessageElement.childNodes[0]) {
+        userMessageElement.replaceChild(messageBody,  userMessageElement.childNodes[0]);
+    } else {
+        userMessageElement.appendChild(messageBody);
+    }
+}
+
+
+</script>
+</head>
+<body>
+ID:
+<input type="text" size="20" id="userid" name="id" onkeyup="validate();">
+<div id="userIdMessage"></div>
+</body>
+</html>
