@@ -20,8 +20,8 @@ function generateChart()
 	cm.setShowLabel(document.getElementById("showLabel").value);
 	cm.setShowLegend(document.getElementById("showLegend").value);
 	cm.setTitle(document.getElementById("title").value);	
-	cm.setCategories(document.getElementById("categories").value.split(","));
-	cm.setValues(document.getElementById("sets").value.split(","));
+	cm.setCategories(document.getElementById("categories").value);
+	cm.setValues(document.getElementById("sets").value);
 
 	var chart = new BirtChart("");
 	if(url)
@@ -75,8 +75,8 @@ Title:
 <br />
 Stacked:
 <select id="stacked">
-<option value="true">true</option>
 <option value="false">false</option>
+<option value="true">true</option>
 </select>
 Color By Category:
 <select id="colorByCategory">
