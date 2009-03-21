@@ -137,14 +137,22 @@ ChartModel.prototype = {
 	setScript : function(script) {
 		this.script = script;
 	},
-	setCategories : function(array) {
-		if (isArray(array)) {
-			this.categories = array;
+	setCategories : function(categories) {
+		if (isArray(categories)) {
+			this.categories = categories;
+		}
+		else
+		{
+			this.categories = categories.split(",");
 		}
 	},
-	setValues : function(array) {
-		if (isArray(array)) {
-			this.values = array;
+	setValues : function(values) {
+		if (isArray(values)) {
+			this.values = values;
+		}
+		else
+		{
+			this.values = values.split(",");
 		}
 	},
 
