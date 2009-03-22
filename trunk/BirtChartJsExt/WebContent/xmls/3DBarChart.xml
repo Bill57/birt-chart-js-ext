@@ -1,0 +1,17 @@
+<chart type='bar' title='3D Bar Chart' dimension='3d' format='png' width='500' height='400' showLegend="true" >
+<categories>
+<category label='Australia'/>
+<category label='China'/>
+<category label='USA'/>
+</categories>
+<dataset>
+<set value='250' />
+<set value='800' />
+<set value='500' />
+</dataset>
+<dataset>
+<set value='300' />
+<set value='400' />
+<set value='600' />
+</dataset>
+</chart>

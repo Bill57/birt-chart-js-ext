@@ -18,7 +18,6 @@ import org.bcje.model.ChartModel;
 import org.bcje.utils.ChartConvertor;
 import org.bcje.utils.ChartXMLParser;
 import org.eclipse.birt.chart.model.Chart;
-import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.viewer.internal.util.ChartImageManager;
 import org.eclipse.birt.chart.viewer.internal.util.ImageHTMLEmitter;
 
@@ -65,11 +64,6 @@ public class ChartServlet extends HttpServlet
 			}
 			if ( cm != null )
 			{
-				// Set size in chart model
-				Bounds bounds = cm.getBlock( ).getBounds( );
-				bounds.setWidth( chart.getWidth( ) );
-				bounds.setHeight( chart.getHeight( ) );
-
 				ChartImageManager imageManager = new ChartImageManager( request.getSession( )
 						.getId( ),
 						cm,

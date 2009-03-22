@@ -1,0 +1,12 @@
+<chart type='pie' title='Pie chart' dimension='2.5d' format='svg' width='500' height='400' colorByCategory="true" >
+<categories>
+<category label='Australia'/>
+<category label='China'/>
+<category label='USA'/>
+</categories>
+<dataset>
+<set value='300' />
+<set value='400' />
+<set value='600' />
+</dataset>
+</chart>
