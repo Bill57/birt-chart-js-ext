@@ -1,4 +1,4 @@
-<chart type='cone' title='bar title' dimension='2.5d' format='png' width='500' height='400' stacked="true" colorByCategory="false" showLegend="true" showLabel="true">
+<chart type='bar' title='Chart with interactivity' dimension='2d' format='svg' width='500' height='400' colorByCategory="false" showLegend="true" showLabel="true">
 <categories>
 <category label='Australia'/>
 <category label='China'/>
@@ -8,11 +8,6 @@
 <set value='250' url="http://actuate.com" tooltip="123"/>
 <set value='800' tooltip="china"/>
 <set value='500' url="index.html"/>
-</dataset>
-<dataset>
-<set value='300' />
-<set value='400' />
-<set value='600' />
 </dataset>
 <script>
 function beforeDrawDataPointLabel( dph, label, icsc ){

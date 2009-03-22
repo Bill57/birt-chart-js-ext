@@ -9,7 +9,6 @@ function generateChart()
 {
 	var width = document.getElementById("width").value;
 	var height = document.getElementById("height").value;   
-	var url = document.getElementById("url").value;
 	
 	var cm = new ChartModel( width, height);
 	cm.setType(document.getElementById("type").value);
@@ -24,25 +23,51 @@ function generateChart()
 	cm.setValues(document.getElementById("sets").value);
 
 	var chart = new BirtChart("");
-	if(url)
-	{
-		chart.setDataURL(url);
-		document.getElementById("xml").innerText=url;
+	chart.setDataXML(cm);	
+	document.getElementById("xml").innerText=cm.getXML();
+	chart.render("chartDiv");
+}
+
+function readFileViaApplet() {
+	var url = document.form1.dataxmls.value;
+	//url.replace("//","/");
+	document.getElementById("url").value=url;
+	document.ReadURL.readFile(document.form1.dataxmls.value);
+	showFileContent();
+}
+
+function showFileContent() {
+	if (document.ReadURL.finished==0) {
+		window.setTimeout(showFileContent,200);
+	return;
 	}
-	else
-	{
-		chart.setDataXML(cm);	
-		document.getElementById("xml").innerText=cm.getXML();
-	}
+	document.getElementById("xml").innerText=document.ReadURL.fileContent;
+	
+	var chart = new BirtChart("");
+	chart.setDataURL(document.form1.dataxmls.value);
 	chart.render("chartDiv");
 }
 </script>
 </head>
 <body onload="generateChart()">
+<applet name=ReadURL code=ReadURL.class width=1 height=1>
+</applet>
+<form name=form1>
 Choose a data XML file:
-<input type="file" size="100" id="url" value="data.xml">
-<br />
+<select name="dataxmls" onChange="if(this.selectedIndex!=0){
+readFileViaApplet()
+}">
+<option value="choose">Choose a file...
+<option value="xmls//StackedTubeChart.xml">Stacked Tube Chart
+<option value="xmls//SidePyramidChart.xml">Pyramid Chart
+<option value="xmls//3DBarChart.xml">3D Bar Chart
+<option value="xmls//PieChart.xml">Pie Chart
+<option value="xmls//ChartInteractivity.xml">Chart Interactivity
+</select>
+<input type="text" size="100" id="url" value="">
+</form>
 <p />
+
 Or use following settings:
 <br />
 Type:
@@ -105,9 +130,16 @@ Data Categories:
 Data Sets:
 <input type="text" id="sets" size="100" value="5,4,8,2,6">
 <br />
-Generated XML:
-<div id="xml" style="background-color: silver;"></div>
 <input type="button" value="Display" onclick="generateChart()">
-<div id="chartDiv"></div>
+<p />
+
+<table>
+<tr>
+<td>Generated Chart:</td>
+<td>Generated XML:</td>
+</tr>
+<tr>
+<td><div id="chartDiv"></div></td>
+<td><div id="xml" style="background-color: silver;"></div></td>
 </body>
 </html>
