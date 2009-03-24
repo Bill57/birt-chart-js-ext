@@ -1,6 +1,6 @@
 BirtChartApplet = function(birtChart) {
 	this.jars = new Array();
-	this.appletClass = "ChartApplet.class";
+	this.appletClass = "applets.ChartApplet";
 	this.codeBase = ".";
 	// this.addJar("chartapplet.jar");
 	this.addJar("js.jar");

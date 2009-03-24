@@ -16,21 +16,18 @@ function load()
 <body onload="load()">
 <div id="chart">Loading chart...</div>
  <!-- 
-    <applet code=ChartApplet.class codebase="../lib/" archive="chartapplet.jar,jss.jar,com.ibm.icu.jar,
-    org.eclipse.birt.chart.device.extension.jar,
-    org.eclipse.birt.chart.engine.extension.jar,
-    org.eclipse.birt.chart.engine.jar,
-    org.eclipse.birt.core.jar,
-    org.eclipse.emf.common.jar,
-    org.eclipse.emf.ecore.xmi.jar,
-    org.eclipse.emf.ecore.jar" 
+    <applet code=applets.ChartApplet codebase="." archive="js.jar,
+    com.ibm.icu_3.8.1.v20080530.jar,
+    org.eclipse.birt.chart.device.extension_2.5.0.v20090312.jar,
+    org.eclipse.birt.chart.engine.extension_2.5.0.v20090312.jar,
+    org.eclipse.birt.chart.engine_2.5.0.v20090312.jar,
+    org.eclipse.birt.core_2.5.0.v20090311.jar,
+    org.eclipse.emf.common_2.5.0.v200902031500.jar,
+    org.eclipse.emf.ecore.xmi_2.5.0.v200902031500.jar,
+    org.eclipse.emf.ecore_2.5.0.v200902031500.jar" 
     width="400" height="400">
     Your browser does not support the applet tag.
     </applet> 
-    				function beforeDrawAxisTitle(axis, title, scriptContext){title.getCaption( ).setValue("Script test");}
-    
-    
-    drawChartApplet('chart', 'ChartApplet', 400, 400, '../lib/', 'chartapplet.jar,jss.jar,com.ibm.icu.jar,    org.eclipse.birt.chart.device.extension.jar,    org.eclipse.birt.chart.engine.extension.jar,    org.eclipse.birt.chart.engine.jar,    org.eclipse.birt.core.jar,    org.eclipse.emf.common.jar,    org.eclipse.emf.ecore.xmi.jar,    org.eclipse.emf.ecore.jar')
  -->
 
 </body>
