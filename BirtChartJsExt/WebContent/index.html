@@ -24,7 +24,7 @@ function generateChart()
 
 	var chart = new BirtChart("");
 	chart.setDataXML(cm);	
-	document.getElementById("xml").innerText=cm.getXML();
+	updateXML( cm.getXML());
 	chart.render("chartDiv");
 }
 
@@ -41,105 +41,96 @@ function showFileContent() {
 		window.setTimeout(showFileContent,200);
 	return;
 	}
-	document.getElementById("xml").innerText=document.ReadURL.fileContent;
+	updateXML(document.ReadURL.fileContent);
 	
 	var chart = new BirtChart("");
 	chart.setDataURL(document.form1.dataxmls.value);
 	chart.render("chartDiv");
 }
+
+function updateXML(xmlStr)
+{
+	if(document.all){
+		// IE
+		document.getElementById('xml').innerText = xmlStr;
+	} else{
+		// Firefox
+		document.getElementById('xml').textContent = xmlStr;
+	}
+}
 </script>
 </head>
 <body onload="generateChart()">
-<applet name=ReadURL code=applets.ReadURL width=1 height=1>
-</applet>
-<form name=form1>
-Choose a data XML file:
-<select name="dataxmls" onChange="if(this.selectedIndex!=0){
+<applet name=ReadURL code=applets.ReadURL width=1 height=1> </applet>
+<form name=form1>Choose a data XML file: <select name="dataxmls"
+	onChange="if(this.selectedIndex!=0){
 readFileViaApplet()
 }">
-<option value="choose">Choose a file...
-<option value="xmls//StackedTubeChart.xml">Stacked Tube Chart
-<option value="xmls//SidePyramidChart.xml">Pyramid Chart
-<option value="xmls//3DBarChart.xml">3D Bar Chart
-<option value="xmls//PieChart.xml">Pie Chart
-<option value="xmls//ChartInteractivity.xml">Chart Interactivity
-</select>
-<input type="text" size="100" id="url" value="">
-</form>
-<p />
-
-Or use following settings:
+	<option value="choose">Choose a file...
+	<option value="xmls//StackedTubeChart.xml">Stacked Tube Chart
+	
+	<option value="xmls//SidePyramidChart.xml">Pyramid Chart
+	<option value="xmls//3DBarChart.xml">3D Bar Chart
+	<option value="xmls//PieChart.xml">Pie Chart
+	<option value="xmls//ChartInteractivity.xml">Chart
+	Interactivity
+</select> <input type="text" size="100" id="url" value=""></form>
+<p />Or use following settings: <br />
+Type: <select id="type">
+	<option value="bar">Bar</option>
+	<option value="pyramid">Pyramid</option>
+	<option value="tube">Tube</option>
+	<option value="cone">Cone</option>
+	<option value="line">Line</option>
+	<option value="area">Area</option>
+	<option value="scatter">Scatter</option>
+	<option value="pie">Pie</option>
+</select> Dimension: <select id="dimension">
+	<option value="2d">2D</option>
+	<option value="2.5d">2.5D</option>
+	<option value="3d">3D</option>
+</select> Format: <select id="format">
+	<option value="svg">SVG</option>
+	<option value="png">PNG</option>
+	<option value="jpg">JPG</option>
+	<option value="gif">GIF</option>
+	<option value="bmp">BMP</option>
+</select> Title: <input type="text" size="20" id="title" value="JS API test">
 <br />
-Type:
-<select id="type">
-<option value="bar">Bar</option>
-<option value="pyramid">Pyramid</option>
-<option value="tube">Tube</option>
-<option value="cone">Cone</option>
-<option value="line">Line</option>
-<option value="area">Area</option>
-<option value="scatter">Scatter</option>
-<option value="pie">Pie</option>
-</select>
-Dimension:
-<select id="dimension">
-<option value="2d">2D</option>
-<option value="2.5d">2.5D</option>
-<option value="3d">3D</option>
-</select>
-Format:
-<select id="format">
-<option value="svg">SVG</option>
-<option value="png">PNG</option>
-<option value="jpg">JPG</option>
-<option value="gif">GIF</option>
-<option value="bmp">BMP</option>
-</select>
-Title:
-<input type="text" size="20" id="title" value="JS API test">
-<br />
-Stacked:
-<select id="stacked">
-<option value="false">false</option>
-<option value="true">true</option>
-</select>
-Color By Category:
-<select id="colorByCategory">
-<option value="true">true</option>
-<option value="false">false</option>
-</select>
-Show Legend:
-<select id="showLegend">
-<option value="true">true</option>
-<option value="false">false</option>
-</select>
-Show Label:
-<select id="showLabel">
-<option value="true">true</option>
-<option value="false">false</option>
-</select>
-<br />
-Width:
-<input type="text" size="20" id="width" value="400">
-Height:
-<input type="text" size="20" id="height" value="300">
-<br />
-Data Categories:
-<input type="text" id="categories" size="100" value="MSFT,ACTU,JAVA,GOOGLE,IBM">
-<br />
-Data Sets:
-<input type="text" id="sets" size="100" value="5,4,8,2,6">
+Stacked: <select id="stacked">
+	<option value="false">false</option>
+	<option value="true">true</option>
+</select> Color By Category: <select id="colorByCategory">
+	<option value="true">true</option>
+	<option value="false">false</option>
+</select> Show Legend: <select id="showLegend">
+	<option value="true">true</option>
+	<option value="false">false</option>
+</select> Show Label: <select id="showLabel">
+	<option value="true">true</option>
+	<option value="false">false</option>
+</select> <br />
+Width: <input type="text" size="20" id="width" value="400">
+Height: <input type="text" size="20" id="height" value="300"> <br />
+Data Categories: <input type="text" id="categories" size="100"
+	value="MSFT,ACTU,JAVA,GOOGLE,IBM"> <br />
+Data Sets: <input type="text" id="sets" size="100" value="5,4,8,2,6">
 <br />
 <input type="button" value="Display" onclick="generateChart()">
 <p />
-
 <table>
-<tr>
-<td>Generated Chart:</td>
-<td>Generated XML:</td>
-</tr>
-<tr>
-<td><div id="chartDiv"></div></td>
-<td><div id="xml" style="background-color: silver;"></div></td>
+	<tr>
+		<td>Generated Chart:</td>
+		<td>Generated XML:</td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<div id="chartDiv"></div>
+		</td>
+		<td valign="top">
+		<div id="xml" style="background-color: silver;"></div>
+		</td>
+	</tr>
+</table>
 </body>
 </html>
