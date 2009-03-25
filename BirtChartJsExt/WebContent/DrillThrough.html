@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Drill-through samples</title>
+<script type="text/javascript" src="js/chartAjaxAPI.js"></script>
+<script type="text/javascript">
+function generateChart()
+{
+	var cm = new ChartModel( 400, 300);
+	cm.setType("pie");
+	cm.setFormat("svg");
+	cm.setDimension("2.5d");
+	cm.setColorByCategory(true);
+	cm.setShowLabel(true);
+	cm.setShowLegend(true);
+	cm.setTitle("World Population");
+	cm.setCategories("China,France,USA");
+	cm.setValues("1300,60,300");
+
+	var chart = new BirtChart("");
+	chart.setDataXML(cm);		
+	chart.render("chartDiv");
+}
+
+</script>
+</head>
+<body onload="generateChart()">
+<div id="chartDiv"></div>
+</body>
+</html>
