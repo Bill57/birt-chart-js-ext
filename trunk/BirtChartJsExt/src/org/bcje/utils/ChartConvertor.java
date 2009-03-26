@@ -121,9 +121,12 @@ public class ChartConvertor {
 			seValue.setStacked(chart.isStacked());
 			seValue.getLabel().setVisible(chart.isShowLabel());
 
-			List<Trigger> triggers = orthSD.getSeries().get(0).getTriggers();
+			List<Trigger> triggers = seValue.getTriggers();
 			if (chart.getDatasets().size() > 0) {
-				ChartDataSet dataset = chart.getDatasets().get(0);
+				// Always use the first data set to check if the tooltip or URL
+				// is needed
+				ChartDataSet dataset = chart.getDatasets().get(
+						i * chart.getCategories().size());
 				if (dataset.getUrl() != null) {
 					URLValue uv = URLValueImpl.create(URL_EXPR + i, "_blank",
 							null, null, null);
@@ -132,8 +135,7 @@ public class ChartConvertor {
 							ActionImpl.create(ActionType.URL_REDIRECT_LITERAL,
 									uv)));
 				}
-				// if ( dataset.getTooltip( ) != null )
-				{
+				if (dataset.getTooltip() != null) {
 					triggers.add(TriggerImpl.create(
 							TriggerCondition.ONMOUSEOVER_LITERAL, ActionImpl
 									.create(ActionType.SHOW_TOOLTIP_LITERAL,

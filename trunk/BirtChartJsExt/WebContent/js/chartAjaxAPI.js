@@ -140,22 +140,31 @@ ChartModel.prototype = {
 	setCategories : function(categories) {
 		if (isArray(categories)) {
 			this.categories = categories;
-		}
-		else
-		{
+		} else {
 			this.categories = categories.split(",");
 		}
 	},
 	setValues : function(values) {
 		if (isArray(values)) {
 			this.values = values;
-		}
-		else
-		{
+		} else {
 			this.values = values.split(",");
 		}
 	},
-
+	setURLs : function(values) {
+		if (isArray(values)) {
+			this.urls = values;
+		} else {
+			this.urls = values.split(",");
+		}
+	},
+	setTooltips : function(values) {
+		if (isArray(values)) {
+			this.tooltips = values;
+		} else {
+			this.tooltips = values.split(",");
+		}
+	},
 	getXML : function() {
 		var writer = new XMLWriter();
 		writer.openTag("chart");
@@ -185,6 +194,12 @@ ChartModel.prototype = {
 			for (i = 0; i < this.values.length; i++) {
 				writer.openTag("set");
 				writer.attribute("value", this.values[i]);
+				if (isArray(this.urls)) {
+					writer.attribute("url", this.urls[i]);
+				}
+				if (isArray(this.tooltips)) {
+					writer.attribute("tooltip", this.tooltips[i]);
+				}
 				writer.closeTag("set");
 			}
 			writer.closeTag("dataset");
