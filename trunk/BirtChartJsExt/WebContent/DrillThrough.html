@@ -7,18 +7,26 @@
 <script type="text/javascript">
 function generateChart()
 {
-	var cm = new ChartModel( 400, 300);
+	// Construct data
+	var categories = new Array("China","EU","USA");
+	var urls = new Array(categories.length);
+	for(var i=0;i<categories.length;i++)
+	{
+		urls[i] = "DrillThrough2.html?country="+categories[i];		
+	}
+		
+	var cm = new ChartModel( 500, 400);
 	cm.setType("pie");
 	cm.setFormat("png");
 	cm.setDimension("2.5d");
 	cm.setColorByCategory(true);
 	cm.setShowLabel(true);
 	cm.setShowLegend(true);
-	cm.setTitle("World Population");
-	cm.setCategories("China,France,USA");
-	cm.setValues("1300,60,300");
-	cm.setURLs("DrillThrough2.html?country=China,DrillThrough2.html?country=France,DrillThrough2.html?country=USA");
-	cm.setTooltips("China,France,USA");
+	cm.setTitle("World Population");	
+	cm.setCategories(categories);
+	cm.setValues("130000000,25000000,30000000");
+	cm.setURLs(urls);
+	cm.setTooltips(categories);
 	
 	var chart = new BirtChart("");
 	chart.setDataXML(cm);		

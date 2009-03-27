@@ -7,16 +7,39 @@
 <script type="text/javascript">
 function generateChart()
 {
-	var cm = new ChartModel( 400, 300);
+	// Construct data according to country
+	var country = "China";
+	var categories = "Shanghai,Beijing,Nanjing,HK";
+	var values = "20000000,15000000,10000000,11000000";
+	if(location)
+	{
+		country = new String(location);
+		var startIndex = country.indexOf("country=");
+		if(startIndex>=0)
+		{
+			country = country.substring(startIndex+8);
+		}
+	}
+	if(country=="USA")
+	{
+		categories = "New York,Los Angles,Houston";
+		values = "6000000,8000000,5000000";
+	} else if(country=="EU")
+	{
+		categories = "France,Germany,Italy";
+		values = "30000000,40000000,20000000";
+	}
+	
+	var cm = new ChartModel( 400, 300 );
 	cm.setType("pie");
 	cm.setFormat("png");
 	cm.setDimension("2.5d");
 	cm.setColorByCategory(true);
-	cm.setShowLabel(true);
 	cm.setShowLegend(true);
-	cm.setTitle("World Population");
-	cm.setCategories("China,France,USA");
-	cm.setValues("1300,60,300");
+	cm.setTitle(country + " Population");
+	cm.setCategories(categories);
+	cm.setValues(values);
+	cm.setTooltips(values);
 	
 	var chart = new BirtChart("");
 	chart.setDataXML(cm);		
