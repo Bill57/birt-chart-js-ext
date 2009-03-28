@@ -30,12 +30,13 @@ function generateChart()
 		values = "30000000,40000000,20000000";
 	}
 	
-	var cm = new ChartModel( 400, 300 );
+	var cm = new ChartModel( 500, 400 );
 	cm.setType("pie");
 	cm.setFormat("png");
 	cm.setDimension("2.5d");
 	cm.setColorByCategory(true);
 	cm.setShowLegend(true);
+	cm.setShowLabel(true);
 	cm.setTitle(country + " Population");
 	cm.setCategories(categories);
 	cm.setValues(values);
