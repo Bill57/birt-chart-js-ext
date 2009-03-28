@@ -1,0 +1,36 @@
+<chart type='tube' title='Wolrd Population' dimension='2.5d' format='png' width='500' height='300' stacked="true" colorByCategory="true" showLegend="true" showLabel="true">
+<categories>
+<category label='China'/>
+<category label='EU'/>
+<category label='USA'/>
+</categories>
+<dataset>
+<set value='1300000000' />
+<set value='250000000' />
+<set value='300000000' />
+</dataset>
+<script>
+function beforeDrawDataPointLabel( dph, label, icsc ){
+	var value = dph.getOrthogonalValue();
+	if( value >= 1000000000 )
+	{
+		label.getCaption().setValue( value/1000000000 + 'B' );
+	}
+	else if( value >= 1000000 )
+	{
+		label.getCaption().setValue( value/1000000 + 'M' );
+	}
+}
+function beforeDrawAxisLabel( axis, label, icsc ){
+	var value = label.getCaption().getValue();
+	if( value >= 1000000000 )
+	{
+		label.getCaption().setValue( value/1000000000 + 'B' );
+	}
+	else if( value >= 1000000 )
+	{
+		label.getCaption().setValue( value/1000000 + 'M' );
+	}
+}
+</script>
+</chart>

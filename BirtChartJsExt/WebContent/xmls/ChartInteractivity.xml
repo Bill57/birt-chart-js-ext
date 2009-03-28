@@ -1,19 +1,12 @@
-<chart type='bar' title='Chart with interactivity' dimension='2d' format='svg' width='500' height='400' colorByCategory="false" showLegend="true" showLabel="true">
+<chart type='tube' title='Wolrd Population' dimension='2.5d' format='png' width='500' height='300' stacked="true" colorByCategory="true" showLegend="true" showLabel="true">
 <categories>
-<category label='Australia'/>
 <category label='China'/>
+<category label='EU'/>
 <category label='USA'/>
 </categories>
 <dataset>
-<set value='250' url="http://actuate.com" tooltip="123"/>
-<set value='800' tooltip="china"/>
-<set value='500' url="index.html"/>
+<set value='1300000000' tooltip="China's population is 1.3B" url="DrillThrough2.html?country=China"/>
+<set value='250000000' tooltip="EU's population is 250M" url="DrillThrough2.html?country=EU"/>
+<set value='300000000' tooltip="USA's population is 300M" url="DrillThrough2.html?country=USA"/>
 </dataset>
-<script>
-function beforeDrawDataPointLabel( dph, label, icsc ){
-	if(dph.getOrthogonalValue()&lt;300)
-	{
-		label.getCaption().setValue('Minor');
-	}
-}</script>
 </chart>
