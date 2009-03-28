@@ -5,20 +5,13 @@
 <category label='USA'/>
 </categories>
 <dataset>
-<set value='250' url="http://actuate.com" tooltip="123"/>
-<set value='800' tooltip="china"/>
-<set value='500' url="index.html"/>
+<set value='250' />
+<set value='800' />
+<set value='500' />
 </dataset>
 <dataset>
 <set value='300' />
 <set value='400' />
 <set value='600' />
 </dataset>
-<script>
-function beforeDrawDataPointLabel( dph, label, icsc ){
-	if(dph.getOrthogonalValue()&lt;300)
-	{
-		label.getCaption().setValue('Minor');
-	}
-}</script>
 </chart>
