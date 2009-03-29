@@ -11,7 +11,43 @@
 	(object Attribute
 	    tool       	"Java"
 	    name       	"IDE"
-	    value      	"Internal Editor"))
+	    value      	"Internal Editor")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply1"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply2"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagName3"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagText3"
+	    value      	"")
+	(object Attribute
+	    tool       	"Java"
+	    name       	"UserDefineTagApply3"
+	    value      	""))
     quid       	"49BCB4540138"
     defaults   	(object defaults
 	rightMargin 	0.250000
@@ -58,6 +94,215 @@
 	subsystem  	"Component View"
 	quidu      	"49BCB454013B"
 	logical_models 	(list unit_reference_list
+	    (object Class "ChartModel"
+		quid       	"49CF451F0167"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "width"
+			quid       	"49CF47B10177"
+			type       	"Double")
+		    (object ClassAttribute "height"
+			quid       	"49CF47BD01C5"
+			type       	"Double")
+		    (object ClassAttribute "categories"
+			quid       	"49CF456A003E"
+			type       	"ChartCategory"
+			quidu      	"49CF453801F4")
+		    (object ClassAttribute "datasets"
+			quid       	"49CF47F200AB"
+			type       	"ChartDataSet"
+			quidu      	"49CF45410167")
+		    (object ClassAttribute "type"
+			quid       	"49CF4591001F"
+			type       	"String")
+		    (object ClassAttribute "title"
+			quid       	"49CF456202DE"
+			type       	"String")
+		    (object ClassAttribute "dimension"
+			quid       	"49CF476D0157"
+			type       	"String")
+		    (object ClassAttribute "format"
+			quid       	"49CF4799009C"
+			type       	"String")
+		    (object ClassAttribute "script"
+			quid       	"49CF480F0177"
+			type       	"String")
+		    (object ClassAttribute "stacked"
+			quid       	"49CF48DC008C"
+			type       	"Boolean")
+		    (object ClassAttribute "showLabel"
+			quid       	"49CF48E702DE"
+			type       	"Boolean")
+		    (object ClassAttribute "showLegend"
+			quid       	"49CF48F1031C"
+			type       	"Boolean")
+		    (object ClassAttribute "colorByCategory"
+			quid       	"49CF48F90261"
+			type       	"Boolean")))
+	    (object Class "ChartCategory"
+		quid       	"49CF453801F4"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "label"
+			quid       	"49CF47420109"
+			type       	"String")))
+	    (object Class "ChartDataSet"
+		quid       	"49CF45410167"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "value"
+			quid       	"49CF46E70196"
+			type       	"Object")
+		    (object ClassAttribute "url"
+			quid       	"49CF46ED0128"
+			type       	"String")
+		    (object ClassAttribute "tooltip"
+			quid       	"49CF472703C8"
+			type       	"String")))
+	    (object Class "ChartTypeDefinition"
+		quid       	"49CF491200FA"
+		operations 	(list Operations
+		    (object Operation "getName"
+			quid       	"49CF49600138"
+			result     	"String"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "isChartWithAxes"
+			quid       	"49CF49AD009C"
+			result     	"Boolean"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "createSeries"
+			quid       	"49CF49B801D4"
+			result     	"Series"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class_Utility "ChartXMLParser"
+		quid       	"49CF4BB103D8"
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			quid       	"49CF4C8200FA"
+			supplier   	"Logical View::ChartModel"
+			quidu      	"49CF451F0167"))
+		operations 	(list Operations
+		    (object Operation "createChart"
+			quid       	"49CF4BCC032C"
+			parameters 	(list Parameters
+			    (object Parameter "xml"
+				quid       	"49CF4BF6004E"
+				type       	"String"))
+			result     	"ChartModel"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0
+			quidu      	"49CF451F0167")))
+	    (object Class_Utility "ChartConvertor"
+		quid       	"49CF4C8D01C5"
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			quid       	"49CF4D4A0000"
+			supplier   	"Logical View::ChartModel"
+			quidu      	"49CF451F0167")
+		    (object Uses_Relationship
+			quid       	"49CF4E290109"
+			supplier   	"Logical View::Chart"
+			quidu      	"49CF4D9503D8")
+		    (object Uses_Relationship
+			quid       	"49CF4E2D038A"
+			supplier   	"Logical View::IDataRowExpressionEvaluator"
+			quidu      	"49CF4DC101A5"))
+		operations 	(list Operations
+		    (object Operation "convertToBIRTChart"
+			quid       	"49CF4CAA03B9"
+			parameters 	(list Parameters
+			    (object Parameter "cm"
+				quid       	"49CF4D3201C5"
+				type       	"ChartModel"
+				quidu      	"49CF451F0167"))
+			result     	"Chart"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "convertToEvaluator"
+			quid       	"49CF4CEF03D8"
+			parameters 	(list Parameters
+			    (object Parameter "cm"
+				quid       	"49CF4D36006D"
+				type       	"ChartModel"
+				quidu      	"49CF451F0167"))
+			result     	"IDataRowExpressionEvaluator"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0
+			quidu      	"49CF4DC101A5")))
+	    (object Class "Chart"
+		quid       	"49CF4D9503D8")
+	    (object Class "IDataRowExpressionEvaluator"
+		quid       	"49CF4DC101A5"
+		stereotype 	"Interface")
+	    (object Class "ChartImageManager"
+		quid       	"49CF503B03D8"
+		operations 	(list Operations
+		    (object Operation "getImage"
+			quid       	"49CF504A02CE"
+			result     	"File"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getImageMap"
+			quid       	"49CF5055030D"
+			result     	"String"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "constractor"
+			quid       	"49CF52160157"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Association "$UNNAMED$0"
+		quid       	"49CF46B301C5"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$1"
+			quid       	"49CF46B40148"
+			supplier   	"Logical View::ChartCategory"
+			quidu      	"49CF453801F4"
+			client_cardinality 	(value cardinality "1..*")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$2"
+			quid       	"49CF46B4014A"
+			supplier   	"Logical View::ChartModel"
+			quidu      	"49CF451F0167")))
+	    (object Association "$UNNAMED$3"
+		quid       	"49CF46B602AF"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$4"
+			quid       	"49CF46B80196"
+			supplier   	"Logical View::ChartDataSet"
+			quidu      	"49CF45410167"
+			client_cardinality 	(value cardinality "1..*")
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$5"
+			quid       	"49CF46B801A5"
+			supplier   	"Logical View::ChartModel"
+			quidu      	"49CF451F0167")))
+	    (object Association "$UNNAMED$6"
+		quid       	"49CF4935008C"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$7"
+			quid       	"49CF4936006D"
+			supplier   	"Logical View::ChartTypeDefinition"
+			quidu      	"49CF491200FA"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$8"
+			quid       	"49CF4936006F"
+			supplier   	"Logical View::ChartModel"
+			quidu      	"49CF451F0167")))
+	    (object Class_Category "BIRT Chart Package"
+		quid       	"49CF4D5E03A9"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list))
 	    (object Mechanism @1
 		logical_models 	(list unit_reference_list
 		    (object Object "Browser"
@@ -174,6 +419,109 @@
 					creation   	FALSE))))
 			persistence 	"Transient"
 			creationObj 	FALSE
+			multi      	FALSE)))
+	    (object Mechanism @2
+		logical_models 	(list unit_reference_list
+		    (object Object "servlet"
+			quid       	"49CF4FA303A9"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"49CF510F0222"
+				supplier   	"parser"
+				quidu      	"49CF4FC002BF"
+				messages   	(list Messages
+				    (object Message "createChart(String)"
+					quid       	"49CF510F0223"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"49CF4BCC032C"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"49CF51CC035B"
+				supplier   	"imageGenerator"
+				quidu      	"49CF50F100DA"
+				messages   	(list Messages
+				    (object Message "getImage( )"
+					quid       	"49CF51CC035C"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"4"
+					ordinal    	3
+					quidu      	"49CF504A02CE"
+					creation   	FALSE)
+				    (object Message "getImageMap( )"
+					quid       	"49CF52B70290"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"5"
+					ordinal    	4
+					quidu      	"49CF5055030D"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"49CF52910148"
+				supplier   	"convertor"
+				quidu      	"49CF4FD6005D"
+				messages   	(list Messages
+				    (object Message "convertToBIRTChart(ChartModel)"
+					quid       	"49CF52910149"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1
+					quidu      	"49CF4CAA03B9"
+					creation   	FALSE)
+				    (object Message "convertToEvaluator(ChartModel)"
+					quid       	"49CF529900AB"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"3"
+					ordinal    	2
+					quidu      	"49CF4CEF03D8"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"49CF52E401A5"
+				supplier   	"servlet"
+				quidu      	"49CF4FA303A9"))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "parser"
+			quid       	"49CF4FC002BF"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"49CF515D02AF"
+				supplier   	"convertor"
+				quidu      	"49CF4FD6005D"))
+			class      	"Logical View::ChartXMLParser"
+			quidu      	"49CF4BB103D8"
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "convertor"
+			quid       	"49CF4FD6005D"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"49CF5213001F"
+				supplier   	"imageGenerator"
+				quidu      	"49CF50F100DA"))
+			class      	"Logical View::ChartConvertor"
+			quidu      	"49CF4C8D01C5"
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "imageGenerator"
+			quid       	"49CF50F100DA"
+			class      	"Logical View::ChartImageManager"
+			quidu      	"49CF503B03D8"
+			persistence 	"Transient"
+			creationObj 	FALSE
 			multi      	FALSE))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
@@ -184,7 +532,493 @@
 		max_width  	21600
 		origin_x   	0
 		origin_y   	0
-		items      	(list diagram_item_list))
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "Logical View::ChartCategory" @3
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(278, 284)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(66, 194)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	424
+			    justify    	0
+			    label      	"ChartCategory")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF453801F4"
+			compartment 	(object Compartment
+			    Parent_View 	@3
+			    location   	(66, 261)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	16777215
+			    anchor     	2
+			    nlines     	2
+			    max_width  	319)
+			width      	442
+			height     	208
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::ChartDataSet" @4
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(275, 787)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(69, 641)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	412
+			    justify    	0
+			    label      	"ChartDataSet")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF45410167"
+			compartment 	(object Compartment
+			    Parent_View 	@4
+			    location   	(69, 708)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	16777215
+			    anchor     	2
+			    nlines     	4
+			    max_width  	347)
+			width      	430
+			height     	320
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::ChartModel" @5
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(944, 603)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(628, 219)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	632
+			    justify    	0
+			    label      	"ChartModel")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF451F0167"
+			compartment 	(object Compartment
+			    Parent_View 	@5
+			    location   	(628, 286)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	14
+			    max_width  	535)
+			width      	650
+			height     	796
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$0" @6
+			location   	(556, 417)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF46B301C5"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$1" @7
+				Parent_View 	@6
+				location   	(-19, -189)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"49CF46B40148"
+				client     	@6
+				supplier   	@3
+				line_style 	0
+				label      	(object SegLabel @8
+				    Parent_View 	@7
+				    location   	(524, 343)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1..*"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	1))
+			    (object RoleView "$UNNAMED$2" @9
+				Parent_View 	@6
+				location   	(-19, -189)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"49CF46B4014A"
+				client     	@6
+				supplier   	@5
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$3" @10
+			location   	(554, 709)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF46B602AF"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$4" @11
+				Parent_View 	@10
+				location   	(-21, 103)
+				font       	(object Font
+				    size       	12
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"49CF46B80196"
+				client     	@10
+				supplier   	@4
+				line_style 	0
+				label      	(object SegLabel @12
+				    Parent_View 	@11
+				    location   	(512, 776)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    anchor     	2
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	15
+				    justify    	0
+				    label      	"1..*"
+				    pctDist    	0.900000
+				    height     	54
+				    orientation 	0))
+			    (object RoleView "$UNNAMED$5" @13
+				Parent_View 	@10
+				location   	(-21, 103)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"49CF46B801A5"
+				client     	@10
+				supplier   	@5
+				line_style 	0)))
+		    (object ClassView "ClassUtility" "Logical View::ChartXMLParser" @14
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			ShowOperationSignature 	TRUE
+			location   	(1886, 272)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@14
+			    location   	(1452, 188)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	868
+			    justify    	0
+			    label      	"ChartXMLParser")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4BB103D8"
+			compartment 	(object Compartment
+			    Parent_View 	@14
+			    location   	(1452, 255)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	2
+			    max_width  	737)
+			width      	886
+			height     	196
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UsesView "" @15
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF4C8200FA"
+			client     	@14
+			supplier   	@5
+			line_style 	0)
+		    (object ClassView "ClassUtility" "Logical View::ChartConvertor" @16
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1876, 625)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@16
+			    location   	(1621, 516)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	510
+			    justify    	0
+			    label      	"ChartConvertor")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4C8D01C5"
+			compartment 	(object Compartment
+			    Parent_View 	@16
+			    location   	(1621, 583)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	3
+			    max_width  	431)
+			width      	528
+			height     	246
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UsesView "" @17
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF4D4A0000"
+			client     	@16
+			supplier   	@5
+			line_style 	0)
+		    (object CategoryView "Logical View::BIRT Chart Package" @18
+			location   	(1881, 1081)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@18
+			    location   	(1340, 906)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	1082
+			    justify    	0
+			    label      	"BIRT Chart Package")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4D5E03A9"
+			width      	1094
+			height     	362)
+		    (object ClassView "Class" "Logical View::Chart" @19
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1548, 1084)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@19
+			    location   	(1452, 1030)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	192
+			    justify    	0
+			    label      	"Chart")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4D9503D8"
+			width      	210
+			height     	136
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::IDataRowExpressionEvaluator" @20
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(2191, 1061)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@20
+			    location   	(2190, 1181)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	354
+			    justify    	0
+			    label      	"IDataRowExpressionEvaluator")
+			icon       	"Interface"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4DC101A5"
+			width      	81
+			height     	81
+			annotation 	8
+			autoResize 	TRUE)
+		    (object UsesView "" @21
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF4E290109"
+			client     	@16
+			supplier   	@19
+			line_style 	0)
+		    (object UsesView "" @22
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"49CF4E2D038A"
+			client     	@16
+			supplier   	@20
+			line_style 	0)))
 	    (object InteractionDiagram "sequence"
 		mechanism_ref 	@1
 		quid       	"49BCBDB90242"
@@ -195,7 +1029,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object InterObjView "Browser" @2
+		    (object InterObjView "Browser" @23
 			location   	(450, 225)
 			font       	(object Font
 			    size       	12
@@ -207,7 +1041,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@2
+			    Parent_View 	@23
 			    location   	(450, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -220,26 +1054,26 @@
 			fill_color 	13434879
 			quidu      	"49BCBDC103D8"
 			width      	300
-			height     	1090
+			height     	1159
 			icon_height 	0
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @3
+			Focus_Of_Control 	(object Focus_Of_Control "" @24
 			    location   	(450, 394)
 			    line_color 	3342489
-			    InterObjView 	@2
-			    height     	831
-			    y_coord    	771
+			    InterObjView 	@23
+			    height     	900
+			    y_coord    	840
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @4
+			Focus_Of_Control 	(object Focus_Of_Control "" @25
 			    location   	(450, 1114)
 			    line_color 	3342489
-			    InterObjView 	@2
+			    InterObjView 	@23
 			    height     	60
 			    y_coord    	0
 			    Nested     	TRUE))
-		    (object InterObjView "Web" @5
+		    (object InterObjView "Web" @26
 			location   	(780, 225)
 			font       	(object Font
 			    size       	12
@@ -251,7 +1085,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@5
+			    Parent_View 	@26
 			    location   	(780, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -264,33 +1098,33 @@
 			fill_color 	13434879
 			quidu      	"49BCBDCF00EA"
 			width      	300
-			height     	1090
+			height     	1159
 			icon_height 	0
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @6
+			Focus_Of_Control 	(object Focus_Of_Control "" @27
 			    location   	(780, 394)
 			    line_color 	3342489
-			    InterObjView 	@5
-			    height     	794
-			    y_coord    	734
+			    InterObjView 	@26
+			    height     	840
+			    y_coord    	780
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @7
+			Focus_Of_Control 	(object Focus_Of_Control "" @28
 			    location   	(780, 520)
 			    line_color 	3342489
-			    InterObjView 	@5
+			    InterObjView 	@26
 			    height     	60
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @8
+			Focus_Of_Control 	(object Focus_Of_Control "" @29
 			    location   	(780, 995)
 			    line_color 	3342489
-			    InterObjView 	@5
+			    InterObjView 	@26
 			    height     	60
 			    y_coord    	0
 			    Nested     	TRUE))
-		    (object InterObjView "AppServer" @9
+		    (object InterObjView "AppServer" @30
 			location   	(1438, 225)
 			font       	(object Font
 			    size       	12
@@ -302,7 +1136,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@9
+			    Parent_View 	@30
 			    location   	(1438, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -315,19 +1149,19 @@
 			fill_color 	13434879
 			quidu      	"49BCBDE000EA"
 			width      	300
-			height     	1090
+			height     	1159
 			icon_height 	0
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @10
+			Focus_Of_Control 	(object Focus_Of_Control "" @31
 			    location   	(1438, 753)
 			    line_color 	3342489
-			    InterObjView 	@9
+			    InterObjView 	@30
 			    height     	222
 			    y_coord    	162
 			    Nested     	FALSE))
-		    (object InterObjView "Servlet" @11
+		    (object InterObjView "Servlet" @32
 			location   	(1109, 225)
 			font       	(object Font
 			    size       	12
@@ -339,7 +1173,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@11
+			    Parent_View 	@32
 			    location   	(1109, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -352,26 +1186,26 @@
 			fill_color 	13434879
 			quidu      	"49BCC682006D"
 			width      	300
-			height     	1090
+			height     	1159
 			icon_height 	0
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @12
+			Focus_Of_Control 	(object Focus_Of_Control "" @33
 			    location   	(1109, 638)
 			    line_color 	3342489
-			    InterObjView 	@11
+			    InterObjView 	@32
 			    height     	477
 			    y_coord    	417
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @13
+			Focus_Of_Control 	(object Focus_Of_Control "" @34
 			    location   	(1109, 855)
 			    line_color 	3342489
-			    InterObjView 	@11
+			    InterObjView 	@32
 			    height     	60
 			    y_coord    	0
 			    Nested     	TRUE))
-		    (object InterMessView "" @14
+		    (object InterMessView "" @35
 			location   	(0, 394)
 			font       	(object Font
 			    size       	12
@@ -382,8 +1216,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @15
-			    Parent_View 	@14
+			label      	(object SegLabel @36
+			    Parent_View 	@35
 			    location   	(614, 350)
 			    font       	(object Font
 				size       	12
@@ -404,14 +1238,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@2
-			supplier   	@5
-			Focus_Src  	@3
-			Focus_Entry 	@6
+			client     	@23
+			supplier   	@26
+			Focus_Src  	@24
+			Focus_Entry 	@27
 			origin     	(465, 394)
 			terminus   	(764, 394)
 			ordinal    	0)
-		    (object SelfMessView "" @16
+		    (object SelfMessView "" @37
 			location   	(0, 520)
 			font       	(object Font
 			    size       	12
@@ -422,8 +1256,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @17
-			    Parent_View 	@16
+			label      	(object SegLabel @38
+			    Parent_View 	@37
 			    location   	(871, 476)
 			    font       	(object Font
 				size       	12
@@ -444,14 +1278,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@5
-			supplier   	@5
-			Focus_Src  	@6
-			Focus_Entry 	@7
+			client     	@26
+			supplier   	@26
+			Focus_Src  	@27
+			Focus_Entry 	@28
 			origin     	(796, 520)
 			terminus   	(946, 520)
 			ordinal    	1)
-		    (object InterMessView "" @18
+		    (object InterMessView "" @39
 			location   	(615, 1114)
 			font       	(object Font
 			    size       	12
@@ -462,8 +1296,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @19
-			    Parent_View 	@18
+			label      	(object SegLabel @40
+			    Parent_View 	@39
 			    location   	(615, 1070)
 			    font       	(object Font
 				size       	12
@@ -484,14 +1318,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@5
-			supplier   	@2
-			Focus_Src  	@6
-			Focus_Entry 	@4
+			client     	@26
+			supplier   	@23
+			Focus_Src  	@27
+			Focus_Entry 	@25
 			origin     	(764, 1114)
 			terminus   	(466, 1114)
 			ordinal    	6)
-		    (object InterMessView "" @20
+		    (object InterMessView "" @41
 			location   	(0, 638)
 			font       	(object Font
 			    size       	12
@@ -502,8 +1336,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @21
-			    Parent_View 	@20
+			label      	(object SegLabel @42
+			    Parent_View 	@41
 			    location   	(944, 594)
 			    font       	(object Font
 				size       	12
@@ -524,14 +1358,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@5
-			supplier   	@11
-			Focus_Src  	@6
-			Focus_Entry 	@12
+			client     	@26
+			supplier   	@32
+			Focus_Src  	@27
+			Focus_Entry 	@33
 			origin     	(795, 638)
 			terminus   	(1093, 638)
 			ordinal    	2)
-		    (object InterMessView "" @22
+		    (object InterMessView "" @43
 			location   	(1289, 753)
 			font       	(object Font
 			    size       	12
@@ -542,8 +1376,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @23
-			    Parent_View 	@22
+			label      	(object SegLabel @44
+			    Parent_View 	@43
 			    location   	(1273, 709)
 			    font       	(object Font
 				size       	12
@@ -564,14 +1398,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@11
-			supplier   	@9
-			Focus_Src  	@12
-			Focus_Entry 	@10
+			client     	@32
+			supplier   	@30
+			Focus_Src  	@33
+			Focus_Entry 	@31
 			origin     	(1124, 753)
 			terminus   	(1422, 753)
 			ordinal    	3)
-		    (object InterMessView "" @24
+		    (object InterMessView "" @45
 			location   	(1258, 855)
 			font       	(object Font
 			    size       	12
@@ -582,8 +1416,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @25
-			    Parent_View 	@24
+			label      	(object SegLabel @46
+			    Parent_View 	@45
 			    location   	(1274, 811)
 			    font       	(object Font
 				size       	12
@@ -604,14 +1438,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@9
-			supplier   	@11
-			Focus_Src  	@10
-			Focus_Entry 	@13
+			client     	@30
+			supplier   	@32
+			Focus_Src  	@31
+			Focus_Entry 	@34
 			origin     	(1422, 855)
 			terminus   	(1125, 855)
 			ordinal    	4)
-		    (object InterMessView "" @26
+		    (object InterMessView "" @47
 			location   	(950, 995)
 			font       	(object Font
 			    size       	12
@@ -622,8 +1456,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @27
-			    Parent_View 	@26
+			label      	(object SegLabel @48
+			    Parent_View 	@47
 			    location   	(946, 952)
 			    font       	(object Font
 				size       	12
@@ -644,13 +1478,385 @@
 			    height     	44
 			    orientation 	1)
 			line_color 	3342489
-			client     	@11
-			supplier   	@5
-			Focus_Src  	@12
-			Focus_Entry 	@8
+			client     	@32
+			supplier   	@26
+			Focus_Src  	@33
+			Focus_Entry 	@29
 			origin     	(1093, 995)
 			terminus   	(796, 995)
-			ordinal    	5)))))
+			ordinal    	5)))
+	    (object InteractionDiagram "Servlet"
+		mechanism_ref 	@2
+		quid       	"49CF4F7A03B9"
+		title      	"Servlet"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "servlet" @49
+			location   	(397, 225)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@49
+			    location   	(397, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"servlet")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4FA303A9"
+			width      	300
+			height     	1027
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @50
+			    location   	(397, 425)
+			    line_color 	3342489
+			    InterObjView 	@49
+			    height     	737
+			    y_coord    	677
+			    Nested     	FALSE))
+		    (object InterObjView "parser" @51
+			location   	(800, 225)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@51
+			    location   	(800, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	388
+			    justify    	0
+			    label      	"parser")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4FC002BF"
+			width      	406
+			height     	1027
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @52
+			    location   	(800, 425)
+			    line_color 	3342489
+			    InterObjView 	@51
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "convertor" @53
+			location   	(1252, 225)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@53
+			    location   	(1252, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	348
+			    justify    	0
+			    label      	"convertor")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF4FD6005D"
+			width      	366
+			height     	1027
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @54
+			    location   	(1252, 559)
+			    line_color 	3342489
+			    InterObjView 	@53
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @55
+			    location   	(1252, 744)
+			    line_color 	3342489
+			    InterObjView 	@53
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "imageGenerator" @56
+			location   	(1751, 225)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@56
+			    location   	(1751, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	486
+			    justify    	0
+			    label      	"imageGenerator")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"49CF50F100DA"
+			width      	504
+			height     	1027
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @57
+			    location   	(1820, 924)
+			    line_color 	3342489
+			    InterObjView 	@56
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @58
+			    location   	(1820, 1042)
+			    line_color 	3342489
+			    InterObjView 	@56
+			    height     	60
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterMessView "" @59
+			location   	(0, 425)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @60
+			    Parent_View 	@59
+			    location   	(598, 381)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"49CF510F0223"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	469
+			    justify    	0
+			    label      	"createChart(String)"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@49
+			supplier   	@51
+			Focus_Src  	@50
+			Focus_Entry 	@52
+			origin     	(412, 425)
+			terminus   	(784, 425)
+			ordinal    	0)
+		    (object InterMessView "" @61
+			location   	(0, 924)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @62
+			    Parent_View 	@61
+			    location   	(1073, 880)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"49CF51CC035C"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	310
+			    justify    	0
+			    label      	"getImage( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@49
+			supplier   	@56
+			Focus_Src  	@50
+			Focus_Entry 	@57
+			origin     	(412, 924)
+			terminus   	(1735, 924)
+			ordinal    	3)
+		    (object InterMessView "" @63
+			location   	(0, 559)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @64
+			    Parent_View 	@63
+			    location   	(824, 515)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"49CF52910149"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	786
+			    justify    	0
+			    label      	"convertToBIRTChart(ChartModel)"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@49
+			supplier   	@53
+			Focus_Src  	@50
+			Focus_Entry 	@54
+			origin     	(412, 559)
+			terminus   	(1236, 559)
+			ordinal    	1)
+		    (object InterMessView "" @65
+			location   	(0, 744)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @66
+			    Parent_View 	@65
+			    location   	(824, 700)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"49CF529900AB"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	764
+			    justify    	0
+			    label      	"convertToEvaluator(ChartModel)"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@49
+			supplier   	@53
+			Focus_Src  	@50
+			Focus_Entry 	@55
+			origin     	(412, 744)
+			terminus   	(1236, 744)
+			ordinal    	2)
+		    (object InterMessView "" @67
+			location   	(1108, 1042)
+			font       	(object Font
+			    size       	12
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @68
+			    Parent_View 	@67
+			    location   	(1073, 998)
+			    font       	(object Font
+				size       	12
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"49CF52B70290"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	407
+			    justify    	0
+			    label      	"getImageMap( )"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@49
+			supplier   	@56
+			Focus_Src  	@50
+			Focus_Entry 	@58
+			origin     	(412, 1042)
+			terminus   	(1735, 1042)
+			ordinal    	4)))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"49BCB454013B"
 	physical_models 	(list unit_reference_list)
@@ -697,7 +1903,7 @@
 		origin_x   	403
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object DeviceView "Application Server    (Tomcat)" @28
+		    (object DeviceView "Application Server    (Tomcat)" @69
 			location   	(1534, 518)
 			font       	(object Font
 			    size       	12
@@ -709,7 +1915,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@28
+			    Parent_View 	@69
 			    location   	(1289, 356)
 			    nlines     	2
 			    max_width  	418
@@ -721,7 +1927,7 @@
 			width      	493
 			height     	394
 			annotation 	0)
-		    (object DeviceView "Http Server (Apache/IIS)" @29
+		    (object DeviceView "Http Server (Apache/IIS)" @70
 			location   	(959, 518)
 			font       	(object Font
 			    size       	12
@@ -733,7 +1939,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@29
+			    Parent_View 	@70
 			    location   	(726, 368)
 			    nlines     	2
 			    max_width  	394
@@ -745,7 +1951,7 @@
 			width      	469
 			height     	369
 			annotation 	0)
-		    (object DeviceView "Browser (Mozilla/IE)" @30
+		    (object DeviceView "Browser (Mozilla/IE)" @71
 			location   	(431, 520)
 			font       	(object Font
 			    size       	12
@@ -757,7 +1963,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@30
+			    Parent_View 	@71
 			    location   	(211, 380)
 			    nlines     	2
 			    max_width  	369
@@ -769,19 +1975,19 @@
 			width      	444
 			height     	350
 			annotation 	0)
-		    (object ConnectionView "" @31
+		    (object ConnectionView "" @72
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"49BCB5CB0251"
-			client     	@30
-			supplier   	@29
+			client     	@71
+			supplier   	@70
 			line_style 	0)
-		    (object ConnectionView "" @32
+		    (object ConnectionView "" @73
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"49BCB5CE03A9"
-			client     	@29
-			supplier   	@28
+			client     	@70
+			supplier   	@69
 			line_style 	0)))))
     properties 	(object Properties
 	attributes 	(list Attribute_Set
@@ -2356,9 +3562,9 @@
 		    (object Attribute
 			tool       	"Ada95"
 			name       	"TypeEqualityName"
-			value      	
+			value      	(value Text 
 |"="
-			)
+			))
 		    (object Attribute
 			tool       	"Ada95"
 			name       	"InlineEquality"
