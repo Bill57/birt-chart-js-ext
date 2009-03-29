@@ -1,0 +1,34 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>BIRT Chart javascript extension API samples</title>
+<script type="text/javascript" src="js/chartAjaxAPI.js"></script>
+<script type="text/javascript">
+function generateChart()
+{
+	var cm = new ChartModel (400,300);
+	cm.setType('tube');
+	cm.setFormat('svg');
+	cm.setDimension('2.5d');
+	cm.setStacked(false);
+	cm.setColorByCategory(true);
+	cm.setShowLabel(true);
+	cm.setShowLegend(true);
+	cm.setTitle('World Population');
+	cm.setCategories('China,EU,USA');
+	cm.setValues('1300000000,250000000,300000000');
+	
+	var chart = new BirtChart("http://localhost:8080/BirtChartJsExt/");
+	chart.setDataXML(cm);
+	chart.render("chartDiv");
+}
+function generateChart2()
+{	
+	var chart = new BirtChart("http://localhost:8080/");
+	chart.setDataURL("xmls/WorldPopulation.xml");
+	chart.render("chartDiv");
+}
+</script>
+</head>
+<body onload="generateChart()">
+<div id="chartDiv"></div>
+</body></html>

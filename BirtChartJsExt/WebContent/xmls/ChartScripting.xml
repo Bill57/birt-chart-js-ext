@@ -1,4 +1,4 @@
-<chart type='tube' title='Wolrd Population' dimension='2.5d' format='png' width='500' height='300' stacked="true" colorByCategory="true" showLegend="true" showLabel="true">
+<chart type='tube' title='World Population' dimension='2.5d' format='png' width='500' height='300' stacked="true" colorByCategory="true" showLegend="true" showLabel="true">
 <categories>
 <category label='China'/>
 <category label='EU'/>
