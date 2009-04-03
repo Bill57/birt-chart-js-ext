@@ -5,10 +5,11 @@ BirtChartApplet = function(birtChart) {
 	// this.addJar("chartapplet.jar");
 	this.addJar("js.jar");
 	this.addJar("com.ibm.icu_3.8.1.v20080530.jar");
-	this.addJar("org.eclipse.birt.chart.device.extension_2.5.0.v20090312.jar");
-	this.addJar("org.eclipse.birt.chart.engine.extension_2.5.0.v20090312.jar");
-	this.addJar("org.eclipse.birt.chart.engine_2.5.0.v20090312.jar");
-	this.addJar("org.eclipse.birt.core_2.5.0.v20090311.jar");
+	this.addJar("org.eclipse.birt.chart.device.extension.jar");
+	this.addJar("org.eclipse.birt.chart.device.svg.jar");
+	this.addJar("org.eclipse.birt.chart.engine.extension.jar");
+	this.addJar("org.eclipse.birt.chart.engine.jar");
+	this.addJar("org.eclipse.birt.core.jar");
 	this.addJar("org.eclipse.emf.common_2.5.0.v200902031500.jar");
 	this.addJar("org.eclipse.emf.ecore.xmi_2.5.0.v200902031500.jar");
 	this.addJar("org.eclipse.emf.ecore_2.5.0.v200902031500.jar");
