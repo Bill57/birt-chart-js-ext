@@ -6,7 +6,7 @@
 </categories>
 <dataset>
 <set value='1300000000' tooltip="China's population is 1.3B" url="DrillThrough2.html?country=China"/>
-<set value='250000000' tooltip="EU's population is 250M" url="DrillThrough2.html?country=EU"/>
+<set value='728000000' tooltip="EU's population is 728M" url="DrillThrough2.html?country=EU"/>
 <set value='300000000' tooltip="USA's population is 300M" url="DrillThrough2.html?country=USA"/>
 </dataset>
 </chart>
