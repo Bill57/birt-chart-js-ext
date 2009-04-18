@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Performance test for 10 charts</title>
+<script type="text/javascript" src="../js/chartAjaxAPI.js"></script>
+<script type="text/javascript">
+	function generateChart() {
+		var size = getSize();
+		var domain = getDomain();
+		for ( var cindex = 0; cindex < 10; cindex++) {
+			var cm = new ChartModel(800, 300);
+			cm.setType('bar');
+			cm.setFormat('png');
+			cm.setDimension('2.5d');
+			cm.setStacked(false);
+			cm.setColorByCategory(true);
+			cm.setShowLabel(true);
+			cm.setShowLegend(true);
+			cm.setTitle('Performance test for chart ' + (cindex + 1) + ' with '
+					+ size + ' rows of data');
+
+			var categories = new Array(size);
+			var values = new Array(size);
+			for ( var i = 0; i < size; i++) {
+				categories[i] = "cat" + i;
+				values[i] = Math.round(Math.random()*100, 0);
+			}
+			cm.setCategories(categories);
+			cm.setValues(values);
+
+			var chart = new BirtChart(domain);
+			chart.setDataXML(cm);
+			chart.render("chartDiv" + cindex);
+		}
+	}
+
+	function getSize() {
+		var size = 10;
+		var strloc = new String(location);
+		var startIndex = strloc.indexOf("size=");
+		if (startIndex >= 0) {
+			size = parseInt(strloc.substring(startIndex + 5));
+		}
+		return size;
+	}
+
+	function getDomain() {
+		var domain = "";
+		var strloc = new String(location);
+		var startIndex = strloc.indexOf("perf/");
+		if (startIndex >= 0) {
+			domain = strloc.substring(0, startIndex);
+		}
+		return domain;
+	}
+</script>
+</head>
+<body onload="generateChart()">
+<div id="chartDiv0"></div>
+<div id="chartDiv1"></div>
+<div id="chartDiv2"></div>
+<div id="chartDiv3"></div>
+<div id="chartDiv4"></div>
+<div id="chartDiv5"></div>
+<div id="chartDiv6"></div>
+<div id="chartDiv7"></div>
+<div id="chartDiv8"></div>
+<div id="chartDiv9"></div>
+</body>
+</html>
