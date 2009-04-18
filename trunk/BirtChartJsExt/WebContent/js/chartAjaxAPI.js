@@ -1,4 +1,7 @@
 BirtChart = function(domain) {
+	if (domain && !domain.endWith("/")) {
+		domain += "/";
+	}
 	this.domain = domain;
 }
 
@@ -20,8 +23,10 @@ BirtChart.prototype = {
 		} else {
 			url = "chart?dataXML=" + this.dataXML;
 		}
+		var d;
 		if (this.domain) {
 			url = this.domain + url;
+			d = this.domain;
 		}
 		var req;
 		if (typeof XMLHttpRequest != "undefined") {
@@ -37,6 +42,9 @@ BirtChart.prototype = {
 					var html = xmlNode.childNodes[0].nodeValue;
 					var chartDiv = (typeof div == 'string') ? document
 							.getElementById(div) : div;
+					if (d) {
+						html = html.replace("imageTemp", d + "imageTemp");
+					}
 					chartDiv.innerHTML = html;
 				}
 			}(div);
@@ -222,4 +230,9 @@ function isArray() {
 		return (criterion != null);
 	}
 	return false;
+}
+
+String.prototype.endWith = function(oString) {
+	var reg = new RegExp(oString + "$");
+	return reg.test(this);
 }
