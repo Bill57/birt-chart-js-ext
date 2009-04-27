@@ -16,25 +16,32 @@ BirtChart.prototype = {
 	setDataURL : function(url) {
 		this.dataURL = url;
 	},
+	setStartTime : function(millsec) {
+		this.startTime = millsec;
+	},
 	render : function(div) {
-		var url;
+		var url = "chart";
+		var postBody;
 		if (this.dataURL) {
-			url = "chart?dataURL=" + this.dataURL;
+			postBody = "dataURL=" + this.dataURL;
 		} else {
-			url = "chart?dataXML=" + this.dataXML;
+			postBody = "dataXML=" + this.dataXML;
 		}
 		var d;
 		if (this.domain) {
 			url = this.domain + url;
 			d = this.domain;
 		}
+		var t = this.startTime;
 		var req;
 		if (typeof XMLHttpRequest != "undefined") {
 			req = new XMLHttpRequest();
 		} else if (window.ActiveXObject) {
 			req = new ActiveXObject("Microsoft.XMLHTTP");
 		}
-		req.open("GET", url, true);
+		req.open("POST", url, true);
+		req.setRequestHeader("Content-Type",
+				"application/x-www-form-urlencoded");
 		req.onreadystatechange = function() {
 			return function() {
 				if (req.readyState == 4 && req.status == 200) {
@@ -46,12 +53,15 @@ BirtChart.prototype = {
 						html = html.replace("imageTemp", d + "imageTemp");
 					}
 					chartDiv.innerHTML = html;
+					if (t) {
+						alert("Total time cost is: "
+								+ (new Date().getTime() - t) + " milliseconds.");
+					}
 				}
 			}(div);
 		};
-		req.send(null);
+		req.send(postBody);
 	}
-
 }
 
 StringBuffer = function(str) {
