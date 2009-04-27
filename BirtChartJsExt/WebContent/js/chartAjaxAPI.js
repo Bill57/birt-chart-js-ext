@@ -27,12 +27,12 @@ BirtChart.prototype = {
 		} else {
 			postBody = "dataXML=" + this.dataXML;
 		}
-		var d;
+		var domainReplace;
 		if (this.domain) {
 			url = this.domain + url;
-			d = this.domain;
+			domainReplace = this.domain;
 		}
-		var t = this.startTime;
+		var time = this.startTime;
 		var req;
 		if (typeof XMLHttpRequest != "undefined") {
 			req = new XMLHttpRequest();
@@ -49,13 +49,15 @@ BirtChart.prototype = {
 					var html = xmlNode.childNodes[0].nodeValue;
 					var chartDiv = (typeof div == 'string') ? document
 							.getElementById(div) : div;
-					if (d) {
-						html = html.replace("imageTemp", d + "imageTemp");
+					if (domainReplace) {
+						html = html.replace("imageTemp", domainReplace
+								+ "imageTemp");
 					}
 					chartDiv.innerHTML = html;
-					if (t) {
+					if (time) {
 						alert("Total time cost is: "
-								+ (new Date().getTime() - t) + " milliseconds.");
+								+ (new Date().getTime() - time)
+								+ " milliseconds.");
 					}
 				}
 			}(div);

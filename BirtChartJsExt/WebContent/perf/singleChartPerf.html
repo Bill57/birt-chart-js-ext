@@ -4,11 +4,9 @@
 <title>Performance test for single chart</title>
 <script type="text/javascript" src="../js/chartAjaxAPI.js"></script>
 <script type="text/javascript">
-	var startTime = new Date().getTime();
-
 	function generateChart() {
+		var startTime = new Date().getTime();
 		var size = getSize();
-
 		var cm = new ChartModel(800, 300);
 		cm.setType('bar');
 		cm.setFormat('png');
@@ -17,7 +15,8 @@
 		cm.setColorByCategory(true);
 		cm.setShowLabel(true);
 		cm.setShowLegend(true);
-		cm.setTitle('Performance test for single chart with ' + size + ' rows of data');
+		cm
+				.setTitle('Performance test for single chart with ' + size + ' rows of data');
 
 		var categories = new Array(size);
 		var values = new Array(size);
