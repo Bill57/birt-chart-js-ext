@@ -4,6 +4,8 @@
 <title>Performance test for 10 charts</title>
 <script type="text/javascript" src="../js/chartAjaxAPI.js"></script>
 <script type="text/javascript">
+	var startTime = new Date().getTime();
+
 	function generateChart() {
 		var size = getSize();
 		var domain = getDomain();
@@ -23,13 +25,14 @@
 			var values = new Array(size);
 			for ( var i = 0; i < size; i++) {
 				categories[i] = "cat" + i;
-				values[i] = Math.round(Math.random()*100, 0);
+				values[i] = Math.round(Math.random() * 100, 0);
 			}
 			cm.setCategories(categories);
 			cm.setValues(values);
 
 			var chart = new BirtChart(domain);
 			chart.setDataXML(cm);
+			chart.setStartTime(startTime);
 			chart.render("chartDiv" + cindex);
 		}
 	}

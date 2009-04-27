@@ -41,6 +41,12 @@ public class ChartServlet extends HttpServlet
 		this.context = config.getServletContext( );
 
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		doGet(req, resp);
+	}
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response )
 			throws IOException, ServletException
