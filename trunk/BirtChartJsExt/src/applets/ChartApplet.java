@@ -12,11 +12,8 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
@@ -48,16 +45,20 @@ public class ChartApplet extends Applet
 	 * Comment for <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = -2328575139648049465L;
+	static final String DEFAULT_XML = "xmls/3DBarChart.xml";
+	// static final String DEFAULT_XML =
+	// "http://birt-chart-js-ext.googlecode.com/svn/trunk/BirtChartJsExt/WebContent/xmls/3DBarChart.xml";
 	ChartCanvas canvas; // The drawing area to display arcs
 
 	public void init( )
 	{
 		setLayout( new BorderLayout( ) );
 		canvas = new ChartCanvas( );
-		String dataXML = "http://birt-chart-js-ext.googlecode.com/svn/trunk/BirtChartJsExt/WebContent/xmls/3DBarChart.xml";// getParameter
-		// (
-		// "dataXML"
-		// )
+		String dataXML = getParameter( "dataXML" );
+		if ( dataXML == null )
+		{
+			dataXML = DEFAULT_XML;
+		}
 		canvas.setDataXML( loadXML( dataXML ) );
 
 		add( BorderLayout.CENTER, canvas );
@@ -100,7 +101,7 @@ public class ChartApplet extends Applet
 		jf.show( );
 	}
 
-	private static String loadXML( String strUrl )
+	private String loadXML( String strUrl )
 	{
 		StringBuffer xml = new StringBuffer( );
 		try
@@ -113,7 +114,6 @@ public class ChartApplet extends Applet
 				{
 					is = AccessController.doPrivileged( new PrivilegedExceptionAction<InputStream>( ) {
 
-						@Override
 						public InputStream run( ) throws IOException
 						{
 							return url.openStream( );
@@ -129,11 +129,7 @@ public class ChartApplet extends Applet
 			}
 			else
 			{
-				File file = SecurityUtil.newFile( new URI( strUrl ) );
-				if ( file.exists( ) )
-				{
-					is = SecurityUtil.newFileInputStream( file );
-				}
+				is = new URL( getDocumentBase( ), strUrl ).openStream( );
 			}
 			if ( is != null )
 			{
@@ -155,11 +151,11 @@ public class ChartApplet extends Applet
 			// TODO Auto-generated catch block
 			e.printStackTrace( );
 		}
-		catch ( URISyntaxException e )
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace( );
-		}
+		// catch ( URISyntaxException e )
+		// {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace( );
+		// }
 		return xml.toString( );
 	}
 
