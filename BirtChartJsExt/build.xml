@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BIRT Chart javascript extension" default="Export" basedir=".">
+	<property environment="myenv" />
+
+	<!-- set global properties for this build -->
+	<!-- Compiler properties -->
+	<property name="compilerArg" value="" />
+	<property name="compileLevel" value="1.5" />
+
+	<!-- Path properties -->
+	<property name="web.dir" value="${basedir}/WebContent" />
+	<property name="bin" value="${web.dir}/WEB-INF/classes" />
+	<property name="war.name" value="BirtChartJsExt.war" />
+	<property name="src" value="${basedir}/src" />
+
+	<path id="classpath">
+		<fileset dir="${myenv.CATALINA_HOME}/lib">
+			<include name="servlet*.jar" />
+		</fileset>
+		<fileset dir="${web.dir}/WEB-INF/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<!-- build init -->
+	<target name="init">
+	</target>
+
+	<!-- Precompile the jsp pages -->
+	<target name="precompile" depends="init" description="Precompile jsp pages.">
+		<echo message="compile bin: ${bin}" />
+		<echo message="compile src: ${src}" />
+
+		<mkdir dir="${bin}" />
+		<javac destdir="${bin}" source="${compileLevel}">
+			<classpath>
+				<path refid="classpath" />
+			</classpath>
+			<src path="${src}" />
+		</javac>
+	</target>
+
+	<!-- Clean up web viewer -->
+	<target name="Clean" depends="init" description="Clean the workspace.">
+		<delete includeemptydirs="true">
+			<fileset dir="." includes="${war.name}" />
+		</delete>
+		<delete dir="${bin}" />
+	</target>
+
+	<!-- Export the project, including jar files and war files	
+	-->
+	<target name="Export" depends="Clean, precompile">
+		<property file="META-INF/MANIFEST.MF" />
+		<echo message="Export war" />
+
+		<!-- Copy applet class-->
+		<copy todir="${web.dir}/applets" failonerror="false">
+			<fileset dir="${bin}/applets">
+				<include name="ReadURL.class" />
+			</fileset>
+		</copy>
+
+		<jar destfile="${basedir}/${war.name}">
+			<fileset dir="${web.dir}">
+				<include name="*/**" />
+				<exclude name="WEB-INF/classes/applets/**" />
+				<exclude name="WEB-INF/lib/version.properties" />
+			</fileset>
+		</jar>
+	</target>
+</project>
