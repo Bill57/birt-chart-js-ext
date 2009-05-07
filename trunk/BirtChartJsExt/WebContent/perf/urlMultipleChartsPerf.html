@@ -7,8 +7,8 @@
 	function generateChart() {
 		var startTime = new Date().getTime();
 		var dataURL = getDataURL();
-		for ( var cindex = 0; cindex < 10; cindex++) {
-			var chart = new BirtChart();
+		var chart = new BirtChart();
+		for ( var cindex = 0; cindex < 10; cindex++) {			
 			chart.setDataURL(dataURL);
 			if (cindex == 9) {
 				chart.setStartTime(startTime);

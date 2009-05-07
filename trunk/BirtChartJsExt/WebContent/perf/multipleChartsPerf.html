@@ -7,6 +7,7 @@
 	function generateChart() {
 		var startTime = new Date().getTime();
 		var size = getSize();
+		var chart = new BirtChart();
 		for ( var cindex = 0; cindex < 10; cindex++) {
 			var cm = new ChartModel(800, 300);
 			cm.setType('bar');
@@ -27,8 +28,7 @@
 			}
 			cm.setCategories(categories);
 			cm.setValues(values);
-
-			var chart = new BirtChart();
+			
 			chart.setDataXML(cm);
 			if (cindex == 9) {
 				chart.setStartTime(startTime);
