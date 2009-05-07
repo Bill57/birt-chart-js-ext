@@ -17,9 +17,11 @@ BirtChart.prototype = {
 		} else if (xml instanceof ChartModel) {
 			this.dataXML = xml.getXML();
 		}
+		this.dataURL = null;
 	},
 	setDataURL : function(url) {
 		this.dataURL = url;
+		this.dataXML = null;
 	},
 	setStartTime : function(millsec) {
 		this.startTime = millsec;
