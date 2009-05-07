@@ -27,10 +27,8 @@ BirtChart.prototype = {
 		} else {
 			postBody = "dataXML=" + this.dataXML;
 		}
-		var domainReplace;
 		if (this.domain) {
 			url = this.domain + url;
-			domainReplace = this.domain;
 		}
 		var time = this.startTime;
 		var req;
@@ -49,10 +47,6 @@ BirtChart.prototype = {
 					var html = xmlNode.childNodes[0].nodeValue;
 					var chartDiv = (typeof div == 'string') ? document
 							.getElementById(div) : div;
-					if (domainReplace) {
-						html = html.replace("imageTemp", domainReplace
-								+ "imageTemp");
-					}
 					chartDiv.innerHTML = html;
 					if (time) {
 						alert("Total time cost is: "
