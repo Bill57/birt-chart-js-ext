@@ -53,10 +53,10 @@ function generateChart()
 	cm.setValues(datasets);
 	jsCode += "cm.setValues('"+datasets+"');\n";
 
-	var chart = new BirtChart("");
+	var chart = new BirtChart();
 	chart.setDataXML(cm);		
 	chart.render("chartDiv");
-	jsCode += "\nvar chart = new BirtChart(\"\");\n";
+	jsCode += "\nvar chart = new BirtChart();\n";
 	jsCode += "chart.setDataXML(cm);\n";
 	jsCode += "chart.render(\"chartDiv\");";
 	updateInnerText("jsContent", jsCode);

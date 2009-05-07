@@ -88,8 +88,8 @@ public class ChartServlet extends HttpServlet
 			}
 			else
 			{
-				html = xml.replaceAll( "<", "&lt;" ).replace( ">", "&gt;" );
-				html = "<b>Invalid XML:</b><br/>" + html;
+				html = xml.replaceAll( "<", "&lt;" ).replace( ">", "&gt;" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$//$NON-NLS-4$
+				html = "<b>Invalid XML:</b><br/>" + html; //$NON-NLS-1$
 			}
 		}
 		catch ( Exception e )

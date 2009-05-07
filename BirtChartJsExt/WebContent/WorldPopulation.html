@@ -17,13 +17,13 @@ function generateChart()
 	cm.setCategories('China,EU,USA');
 	cm.setValues('1300000000,728000000,300000000');
 	
-	var chart = new BirtChart("http://localhost:8080/BirtChartJsExt/");
+	var chart = new BirtChart();
 	chart.setDataXML(cm);
 	chart.render("chartDiv");
 }
 function generateChart2()
 {	
-	var chart = new BirtChart("http://localhost:8080/");
+	var chart = new BirtChart();
 	chart.setDataURL("xmls/WorldPopulation.xml");
 	chart.render("chartDiv");
 }

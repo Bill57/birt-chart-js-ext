@@ -1,8 +1,13 @@
-BirtChart = function(domain) {
-	if (domain && !domain.endWith("/")) {
-		domain += "/";
+BirtChart = function() {
+	var strloc = new String(location);
+	if (strloc.indexOf("http") >= 0) {
+		var startIndex = strloc.indexOf("//");
+		strloc = strloc.substring(startIndex + 2);
+		startIndex = strloc.indexOf("/");
+		strloc = strloc.substring(startIndex + 1);
+		startIndex = strloc.indexOf("/");
+		this.contextPath = "/" + strloc.substring(0, startIndex + 1);
 	}
-	this.domain = domain;
 }
 
 BirtChart.prototype = {
@@ -27,8 +32,8 @@ BirtChart.prototype = {
 		} else {
 			postBody = "dataXML=" + this.dataXML;
 		}
-		if (this.domain) {
-			url = this.domain + url;
+		if (this.contextPath) {
+			url = this.contextPath + url;
 		}
 		var time = this.startTime;
 		var req;
