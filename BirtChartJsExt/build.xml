@@ -66,6 +66,7 @@
 				<include name="*/**" />
 				<exclude name="WEB-INF/classes/applets/**" />
 				<exclude name="WEB-INF/lib/version.properties" />
+				<exclude name="js/chartApplet.js" />
 			</fileset>
 		</jar>
 	</target>
