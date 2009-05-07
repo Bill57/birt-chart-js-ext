@@ -7,7 +7,6 @@
 	function generateChart() {
 		var startTime = new Date().getTime();
 		var size = getSize();
-		var domain = getDomain();
 		for ( var cindex = 0; cindex < 10; cindex++) {
 			var cm = new ChartModel(800, 300);
 			cm.setType('bar');
@@ -29,7 +28,7 @@
 			cm.setCategories(categories);
 			cm.setValues(values);
 
-			var chart = new BirtChart(domain);
+			var chart = new BirtChart();
 			chart.setDataXML(cm);
 			if (cindex == 9) {
 				chart.setStartTime(startTime);
@@ -46,16 +45,6 @@
 			size = parseInt(strloc.substring(startIndex + 5));
 		}
 		return size;
-	}
-
-	function getDomain() {
-		var domain = "";
-		var strloc = new String(location);
-		var startIndex = strloc.indexOf("perf/");
-		if (startIndex >= 0) {
-			domain = strloc.substring(0, startIndex);
-		}
-		return domain;
 	}
 </script>
 </head>

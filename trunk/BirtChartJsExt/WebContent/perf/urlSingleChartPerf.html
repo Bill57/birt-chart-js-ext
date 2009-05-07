@@ -6,7 +6,7 @@
 <script type="text/javascript">
 	function generateChart() {
 		var startTime = new Date().getTime();
-		var chart = new BirtChart(getDomain());
+		var chart = new BirtChart();
 		chart.setDataURL(getDataURL());
 		chart.setStartTime(startTime);
 		chart.render("chartDiv");
@@ -20,16 +20,6 @@
 			url = strloc.substring(startIndex + 8);
 		}
 		return url;
-	}
-
-	function getDomain() {
-		var domain = "";
-		var strloc = new String(location);
-		var startIndex = strloc.indexOf("perf/");
-		if (startIndex >= 0) {
-			domain = strloc.substring(0, startIndex);
-		}
-		return domain;
 	}
 </script>
 </head>
