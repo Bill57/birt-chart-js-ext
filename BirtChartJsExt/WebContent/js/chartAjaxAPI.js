@@ -1,12 +1,16 @@
-BirtChart = function() {
-	var strloc = new String(location);
-	if (strloc.indexOf("http") >= 0) {
-		var startIndex = strloc.indexOf("//");
-		strloc = strloc.substring(startIndex + 2);
-		startIndex = strloc.indexOf("/");
-		strloc = strloc.substring(startIndex + 1);
-		startIndex = strloc.indexOf("/");
-		this.contextPath = "/" + strloc.substring(0, startIndex + 1);
+BirtChart = function(contextPath) {
+	if (contextPath) {
+		this.contextPath = contextPath;
+	} else {
+		var strloc = new String(location);
+		if (strloc.indexOf("http") >= 0) {
+			var startIndex = strloc.indexOf("//");
+			strloc = strloc.substring(startIndex + 2);
+			startIndex = strloc.indexOf("/");
+			strloc = strloc.substring(startIndex + 1);
+			startIndex = strloc.indexOf("/");
+			this.contextPath = "/" + strloc.substring(0, startIndex + 1);
+		}
 	}
 }
 
