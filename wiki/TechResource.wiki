@@ -7,11 +7,14 @@ List some tech resource used in project.
 
 = Details =
 
-BIRT:
+BIRT (extension base)
   * [http://eclipse.org/birt BIRT official site]
   * [http://www.birt-exchange.com Community]
 
-JMeter:
+JMeter (used to test time usage)
   * [http://jakarta.apache.org/jmeter/ JMeter official site]
   * [http://d.download.csdn.net/down/1120303/yongzhi511 PDF doc]
   * [http://d.download.csdn.net/down/1191875/njzdl Doc]
+
+VisualVM (used to test memory usage)
+  * [https://visualvm.dev.java.net/ VisualVM official site]
