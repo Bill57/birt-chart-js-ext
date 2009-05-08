@@ -8,10 +8,10 @@ List some tech resource used in project.
 = Details =
 
 BIRT:
-  * [http://eclipse.org/birt http://eclipse.org/birt] BIRT official site
-  * [http://www.birt-exchange.com http://www.birt-exchange.com] Community
+  * [http://eclipse.org/birt BIRT official site]
+  * [http://www.birt-exchange.com Community]
 
 JMeter:
-  * http://jakarta.apache.org/jmeter/
-  * http://d.download.csdn.net/down/1120303/yongzhi511
-  * http://d.download.csdn.net/down/1191875/njzdl
+  * [http://jakarta.apache.org/jmeter/ JMeter official site]
+  * [http://d.download.csdn.net/down/1120303/yongzhi511 PDF doc]
+  * [http://d.download.csdn.net/down/1191875/njzdl Doc]
