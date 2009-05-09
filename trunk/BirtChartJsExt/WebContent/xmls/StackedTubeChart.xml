@@ -4,12 +4,12 @@
 <category label='China'/>
 <category label='USA'/>
 </categories>
-<dataset>
+<dataset name="A">
 <set value='250' tooltip="250"/>
 <set value='800' tooltip="800"/>
 <set value='500' tooltip="500"/>
 </dataset>
-<dataset>
+<dataset name="B">
 <set value='300' tooltip="300"/>
 <set value='400' tooltip="400"/>
 <set value='600' tooltip="600"/>

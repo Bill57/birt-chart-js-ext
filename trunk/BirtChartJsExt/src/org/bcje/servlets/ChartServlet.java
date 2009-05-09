@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.bcje.model.ChartModel;
 import org.bcje.utils.ChartConvertor;
 import org.bcje.utils.ChartXMLParser;
+import org.eclipse.birt.chart.log.ILogger;
+import org.eclipse.birt.chart.log.Logger;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.viewer.internal.util.ChartImageManager;
 import org.eclipse.birt.chart.viewer.internal.util.ImageHTMLEmitter;
@@ -32,6 +34,8 @@ public class ChartServlet extends HttpServlet
 	 * Comment for <code>serialVersionUID</code>
 	 */
 	private static final long serialVersionUID = -970069279731222139L;
+	private static ILogger logger = Logger.getLogger( "BirtChartJsExt" ); //$NON-NLS-1$
+
 
 	private ServletContext context;
 
@@ -58,6 +62,7 @@ public class ChartServlet extends HttpServlet
 		{
 			xml = loadXML( url );
 		}
+		logger.log(ILogger.INFORMATION, xml);
 		ChartModel chart = null;
 
 		try
