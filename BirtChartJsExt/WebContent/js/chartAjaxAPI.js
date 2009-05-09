@@ -169,6 +169,13 @@ ChartModel.prototype = {
 			this.categories = categories.split(",");
 		}
 	},
+	setSeriesNames : function(seriesNames) {
+		if (isArray(seriesNames)) {
+			this.seriesNames = seriesNames;
+		} else {
+			this.seriesNames = seriesNames.split(",");
+		}
+	},
 	setValues : function(values) {
 		if (isArray(values)) {
 			this.values = values;
@@ -204,9 +211,11 @@ ChartModel.prototype = {
 		writer.attribute("showLegend", this.showLegend);
 		writer.attribute("showLabel", this.showLabel);
 
+		var categoryLength = 0;
 		if (this.categories) {
+			categoryLength = this.categories.length;
 			writer.openTag("categories");
-			for ( var i = 0; i < this.categories.length; i++) {
+			for ( var i = 0; i < categoryLength; i++) {
 				writer.openTag("category");
 				writer.attribute("label", this.categories[i]);
 				writer.closeTag("category");
@@ -214,9 +223,16 @@ ChartModel.prototype = {
 			writer.closeTag("categories");
 		}
 
-		if (this.values) {
-			writer.openTag("dataset");
+		if (this.values && categoryLength > 0) {
 			for (i = 0; i < this.values.length; i++) {
+				if (i % categoryLength == 0) {
+					writer.openTag("dataset");
+					if (isArray(this.seriesNames)) {
+						writer.attribute("name", this.seriesNames[i
+								/ categoryLength]);
+					}
+				}
+
 				writer.openTag("set");
 				writer.attribute("value", this.values[i]);
 				if (isArray(this.urls)) {
@@ -226,8 +242,11 @@ ChartModel.prototype = {
 					writer.attribute("tooltip", this.tooltips[i]);
 				}
 				writer.closeTag("set");
+				
+				if ((i + 1) % categoryLength == 0) {
+					writer.closeTag("dataset");
+				}
 			}
-			writer.closeTag("dataset");
 		}
 
 		if (this.script) {

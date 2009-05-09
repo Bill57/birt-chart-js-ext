@@ -4,12 +4,12 @@
 <category label='China'/>
 <category label='USA'/>
 </categories>
-<dataset>
+<dataset name="Population">
 <set value='250' />
 <set value='800' />
 <set value='500' />
 </dataset>
-<dataset>
+<dataset name="Area">
 <set value='300' />
 <set value='400' />
 <set value='600' />

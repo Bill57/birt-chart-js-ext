@@ -1,4 +1,3 @@
-
 package org.bcje.model;
 
 import java.util.ArrayList;
@@ -8,8 +7,7 @@ import java.util.List;
  * 
  */
 
-public class ChartModel
-{
+public class ChartModel {
 
 	public static final String DIMENSION_2D = "2D"; //$NON-NLS-1$
 	public static final String DIMENSION_2D_DEPTH = "2.5D"; //$NON-NLS-1$
@@ -17,8 +15,10 @@ public class ChartModel
 
 	private final String type, dimension, format;
 	private final double width, height;
-	private final List<ChartCategory> categories = new ArrayList<ChartCategory>( 4 );
-	private final List<ChartDataSet> datasets = new ArrayList<ChartDataSet>( 4 );
+	private final List<ChartCategory> categories = new ArrayList<ChartCategory>(
+			4);
+	private final List<ChartDataSet> datasets = new ArrayList<ChartDataSet>(4);
+	private final List<String> seriesNames = new ArrayList<String>(1);
 	private String title;
 	private String script;
 	private boolean stacked = false;
@@ -26,12 +26,11 @@ public class ChartModel
 	private boolean showLegend = true;
 	private boolean showLabel = false;
 
-	public ChartModel( String type, String dimension, String format,
-			double width, double height )
-	{
-		this.type = type.toUpperCase( );
-		this.dimension = dimension.toUpperCase( );
-		this.format = format.toUpperCase( );
+	public ChartModel(String type, String dimension, String format,
+			double width, double height) {
+		this.type = type.toUpperCase();
+		this.dimension = dimension.toUpperCase();
+		this.format = format.toUpperCase();
 		this.width = width;
 		this.height = height;
 	}
@@ -40,72 +39,70 @@ public class ChartModel
 	 * @param title
 	 *            The title to set.
 	 */
-	public void setTitle( String title )
-	{
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
 	/**
 	 * @return Returns the title.
 	 */
-	public String getTitle( )
-	{
+	public String getTitle() {
 		return title;
 	}
 
 	/**
 	 * @return Returns the categories.
 	 */
-	public List<ChartCategory> getCategories( )
-	{
+	public List<ChartCategory> getCategories() {
 		return categories;
 	}
 
 	/**
 	 * @return Returns the datasets.
 	 */
-	public List<ChartDataSet> getDatasets( )
-	{
+	public List<ChartDataSet> getDatasets() {
 		return datasets;
+	}
+	
+	/**
+	 * @return the seriesNames
+	 */
+	public List<String> getSeriesNames() {
+		return seriesNames;
 	}
 
 	/**
 	 * @return Returns the type.
 	 */
-	public String getType( )
-	{
+	public String getType() {
 		return type;
 	}
 
 	/**
 	 * @return Returns the dimension.
 	 */
-	public String getDimension( )
-	{
+	public String getDimension() {
 		return dimension;
 	}
 
 	/**
 	 * @return Returns the width.
 	 */
-	public double getWidth( )
-	{
+	public double getWidth() {
 		return width;
 	}
 
 	/**
 	 * @return Returns the height.
 	 */
-	public double getHeight( )
-	{
+	public double getHeight() {
 		return height;
 	}
 
 	/**
 	 * @return Returns the format.
 	 */
-	public String getFormat( )
-	{
+	public String getFormat() {
 		return format;
 	}
 
@@ -113,16 +110,14 @@ public class ChartModel
 	 * @param script
 	 *            The script to set.
 	 */
-	public void setScript( String script )
-	{
+	public void setScript(String script) {
 		this.script = script;
 	}
 
 	/**
 	 * @return Returns the script.
 	 */
-	public String getScript( )
-	{
+	public String getScript() {
 		return script;
 	}
 
@@ -133,16 +128,14 @@ public class ChartModel
 	 * @param stacked
 	 *            The stacked to set.
 	 */
-	public void setStacked( boolean stacked )
-	{
+	public void setStacked(boolean stacked) {
 		this.stacked = stacked;
 	}
 
 	/**
 	 * @return Returns the stacked.
 	 */
-	public boolean isStacked( )
-	{
+	public boolean isStacked() {
 		return stacked;
 	}
 
@@ -150,16 +143,14 @@ public class ChartModel
 	 * @param colorByCategory
 	 *            The colorByCategory to set.
 	 */
-	public void setColorByCategory( boolean colorByCategory )
-	{
+	public void setColorByCategory(boolean colorByCategory) {
 		this.colorByCategory = colorByCategory;
 	}
 
 	/**
 	 * @return Returns the colorByCategory.
 	 */
-	public boolean isColorByCategory( )
-	{
+	public boolean isColorByCategory() {
 		return colorByCategory;
 	}
 
@@ -167,16 +158,14 @@ public class ChartModel
 	 * @param showLegend
 	 *            The showLegend to set.
 	 */
-	public void setShowLegend( boolean showLegend )
-	{
+	public void setShowLegend(boolean showLegend) {
 		this.showLegend = showLegend;
 	}
 
 	/**
 	 * @return Returns the showLegend.
 	 */
-	public boolean isShowLegend( )
-	{
+	public boolean isShowLegend() {
 		return showLegend;
 	}
 
@@ -184,16 +173,14 @@ public class ChartModel
 	 * @param showLabel
 	 *            The showLabel to set.
 	 */
-	public void setShowLabel( boolean showLabel )
-	{
+	public void setShowLabel(boolean showLabel) {
 		this.showLabel = showLabel;
 	}
 
 	/**
 	 * @return Returns the showLabel.
 	 */
-	public boolean isShowLabel( )
-	{
+	public boolean isShowLabel() {
 		return showLabel;
 	}
 }

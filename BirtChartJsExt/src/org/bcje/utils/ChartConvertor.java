@@ -120,6 +120,12 @@ public class ChartConvertor {
 			seValue.getDataDefinition().add(QueryImpl.create(VALUE_EXPR + i));
 			seValue.setStacked(chart.isStacked());
 			seValue.getLabel().setVisible(chart.isShowLabel());
+			if (chart.getSeriesNames().size() > i) {
+				String seriesName = chart.getSeriesNames().get(i);
+				if (seriesName != null) {
+					seValue.setSeriesIdentifier(seriesName);
+				}
+			}
 
 			List<Trigger> triggers = seValue.getTriggers();
 			if (chart.getDatasets().size() > 0) {

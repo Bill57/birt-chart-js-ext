@@ -84,6 +84,8 @@ public class ChartXMLParser {
 	}
 
 	private void handleValues(ChartModel cm, Node values) {
+		cm.getSeriesNames().add(getNodeValue(values.getAttributes(), "name"));
+
 		NodeList valueList = values.getChildNodes();
 		for (int i = 0; i < valueList.getLength(); i++) {
 			NamedNodeMap namedNode = valueList.item(i).getAttributes();
