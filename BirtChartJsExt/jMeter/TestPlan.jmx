@@ -14,9 +14,9 @@
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="dataXML" enabled="true">
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">0</stringProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">0</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0</stringProp>
         <longProp name="ThreadGroup.start_time">1241684810000</longProp>
         <longProp name="ThreadGroup.end_time">1241684810000</longProp>
@@ -31,7 +31,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="dataXML" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">&lt;chart type=&quot;bar&quot; format=&quot;png&quot; width=&quot;800&quot; height=&quot;300&quot; dimension=&quot;2.5d&quot; title=&quot;Performance test for single chart with 10 rows of data&quot; stacked=&quot;false&quot; colorByCategory=&quot;true&quot; showLegend=&quot;true&quot; showLabel=&quot;true&quot;&gt;&lt;categories&gt;&lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt;&lt;/categories&gt;&lt;dataset&gt;&lt;set value=&quot;13&quot;/&gt;&lt;set value=&quot;79&quot;/&gt;&lt;set value=&quot;30&quot;/&gt;&lt;set value=&quot;32&quot;/&gt;&lt;set value=&quot;43&quot;/&gt;&lt;set value=&quot;14&quot;/&gt;&lt;set value=&quot;90&quot;/&gt;&lt;set value=&quot;77&quot;/&gt;&lt;set value=&quot;47&quot;/&gt;&lt;set value=&quot;33&quot;/&gt;&lt;/dataset&gt;&lt;/chart&gt;</stringProp>
+                <stringProp name="Argument.value">&lt;chart type=&quot;bar&quot; format=&quot;png&quot; width=&quot;800&quot; height=&quot;300&quot; dimension=&quot;2.5d&quot; title=&quot;Performance test with 100 rows of data&quot; stacked=&quot;false&quot; colorByCategory=&quot;true&quot; showLegend=&quot;true&quot; showLabel=&quot;true&quot;&gt; &lt;categories&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;category label=&quot;cat0&quot;/&gt;&lt;category label=&quot;cat1&quot;/&gt;&lt;category label=&quot;cat2&quot;/&gt;&lt;category label=&quot;cat3&quot;/&gt;&lt;category label=&quot;cat4&quot;/&gt;&lt;category label=&quot;cat5&quot;/&gt;&lt;category label=&quot;cat6&quot;/&gt;&lt;category label=&quot;cat7&quot;/&gt;&lt;category label=&quot;cat8&quot;/&gt;&lt;category label=&quot;cat9&quot;/&gt; &lt;/categories&gt; &lt;dataset&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;set value=&quot;37&quot;/&gt;&lt;set value=&quot;49&quot;/&gt;&lt;set value=&quot;22&quot;/&gt;&lt;set value=&quot;88&quot;/&gt;&lt;set value=&quot;72&quot;/&gt;&lt;set value=&quot;69&quot;/&gt;&lt;set value=&quot;24&quot;/&gt;&lt;set value=&quot;1&quot;/&gt;&lt;set value=&quot;54&quot;/&gt;&lt;set value=&quot;65&quot;/&gt; &lt;/dataset&gt; &lt;/chart&gt;</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dataXML</stringProp>
@@ -119,45 +119,13 @@
           <stringProp name="filename"></stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
-          <boolProp name="ResultCollector.error_logging">false</boolProp>
-          <objProp>
-            <name>saveConfig</name>
-            <value class="SampleSaveConfiguration">
-              <time>true</time>
-              <latency>true</latency>
-              <timestamp>true</timestamp>
-              <success>true</success>
-              <label>true</label>
-              <code>true</code>
-              <message>true</message>
-              <threadName>true</threadName>
-              <dataType>true</dataType>
-              <encoding>false</encoding>
-              <assertions>true</assertions>
-              <subresults>true</subresults>
-              <responseData>false</responseData>
-              <samplerData>false</samplerData>
-              <xml>true</xml>
-              <fieldNames>false</fieldNames>
-              <responseHeaders>false</responseHeaders>
-              <requestHeaders>false</requestHeaders>
-              <responseDataOnError>false</responseDataOnError>
-              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
-              <assertionsResultsToSave>0</assertionsResultsToSave>
-              <bytes>true</bytes>
-            </value>
-          </objProp>
-          <stringProp name="filename"></stringProp>
-        </ResultCollector>
-        <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="dataURL" enabled="true">
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.num_threads">0</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0</stringProp>
         <longProp name="ThreadGroup.start_time">1241686308000</longProp>
         <longProp name="ThreadGroup.end_time">1241686308000</longProp>
@@ -172,7 +140,7 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="dataURL" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">xmls/PieChart.xml</stringProp>
+                <stringProp name="Argument.value">perf/dataPerf10.xml</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">dataURL</stringProp>

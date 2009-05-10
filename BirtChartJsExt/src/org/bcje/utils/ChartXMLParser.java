@@ -32,23 +32,33 @@ public class ChartXMLParser {
 
 			Node root = doc.getFirstChild();
 			NamedNodeMap chartAttr = root.getAttributes();
-			String type = chartAttr.getNamedItem("type").getNodeValue();
-			String dimension = chartAttr.getNamedItem("dimension")
-					.getNodeValue();
-			String format = chartAttr.getNamedItem("format").getNodeValue();
-			String width = chartAttr.getNamedItem("width").getNodeValue();
-			String height = chartAttr.getNamedItem("height").getNodeValue();
+			String type = getNodeValue(chartAttr, "type");
+			String dimension = getNodeValue(chartAttr, "dimension");
+			String format = getNodeValue(chartAttr, "format");
+			String width = getNodeValue(chartAttr, "width");
+			String height = getNodeValue(chartAttr, "height");
 			chart = new ChartModel(type, dimension, format, Double
 					.parseDouble(width), Double.parseDouble(height));
 
-			String title = chartAttr.getNamedItem("title").getNodeValue();
+			String title = getNodeValue(chartAttr, "title");
 			chart.setTitle(title);
 
-			chart.setStacked(getBooleanProperty(chartAttr, "stacked"));
-			chart.setColorByCategory(getBooleanProperty(chartAttr,
-					"colorByCategory"));
-			chart.setShowLabel(getBooleanProperty(chartAttr, "showLabel"));
-			chart.setShowLegend(getBooleanProperty(chartAttr, "showLegend"));
+			String stacked = getNodeValue(chartAttr, "stacked");
+			if (stacked != null) {
+				chart.setStacked(Boolean.parseBoolean(stacked));
+			}
+			String colorByCategory = getNodeValue(chartAttr, "colorByCategory");
+			if (colorByCategory != null) {
+				chart.setColorByCategory(Boolean.parseBoolean(colorByCategory));
+			}
+			String showLabel = getNodeValue(chartAttr, "showLabel");
+			if (showLabel != null) {
+				chart.setShowLabel(Boolean.parseBoolean(showLabel));
+			}
+			String showLegend = getNodeValue(chartAttr, "showLegend");
+			if (showLegend != null) {
+				chart.setShowLegend(Boolean.parseBoolean(showLegend));
+			}
 
 			NodeList nodes = root.getChildNodes();
 			for (int i = 0; i < nodes.getLength(); i++) {
@@ -111,10 +121,10 @@ public class ChartXMLParser {
 		return null;
 	}
 
-	private boolean getBooleanProperty(NamedNodeMap chartAttr,
-			String propertyName) {
-		Node node = chartAttr.getNamedItem(propertyName);
-		return node != null && node.getNodeValue() != null
-				&& Boolean.parseBoolean(node.getNodeValue());
-	}
+	// private boolean getBooleanProperty(NamedNodeMap chartAttr,
+	// String propertyName) {
+	// Node node = chartAttr.getNamedItem(propertyName);
+	// return node != null && node.getNodeValue() != null
+	// && Boolean.parseBoolean(node.getNodeValue());
+	// }
 }

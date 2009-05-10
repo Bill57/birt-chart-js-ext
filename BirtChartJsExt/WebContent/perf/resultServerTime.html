@@ -1,6 +1,6 @@
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Total time test</title>
+<title>Server time test</title>
 <script type="text/javascript" src="../js/chartAjaxAPI.js"></script>
 <script type="text/javascript">
 function generateChart()
@@ -11,13 +11,12 @@ function generateChart()
 	cm.setDimension('2d');
 	cm.setStacked(false);
 	cm.setColorByCategory(false);
-	cm.setShowLabel(false);
+	cm.setShowLabel(true);
 	cm.setShowLegend(true);
-	cm.setTitle('Total time test');
-	cm.setCategories('10 data, 100 data, 1000 data');
-	cm.setValues('230.4, 400.2, 1759.3, 232.4, 300.4, 1580.8, 205.42, 326.74, 1689.93, 170.44, 341.43, 1809.62');
-	cm.setSeriesNames('Data API 1 chart, Data API 10 charts, Data URL 1 chart, Data URL 10 charts');
-	cm.setScript("function beforeDrawMarker(marker, dph, icsc){importPackage (Packages.org.eclipse.birt.chart.model.attribute); marker.setType(MarkerType.CROSSHAIR_LITERAL);}");
+	cm.setTitle('Server time test');
+	cm.setCategories('10 data, 100 data');
+	cm.setValues('2107, 5306, 2011, 5374, 7236, 20128, 6255, 19898');
+	cm.setSeriesNames('URL approach 30 threads, API approach 30 threads, URL approach 100 threads, API approach 100 threads');
 	var chart = new BirtChart();
 	chart.setDataXML(cm);
 	chart.render("chartDiv");

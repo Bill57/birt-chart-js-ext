@@ -22,15 +22,23 @@ public class ChartModel {
 	private String title;
 	private String script;
 	private boolean stacked = false;
-	private boolean colorByCategory = false;
+	private boolean colorByCategory = true;
 	private boolean showLegend = true;
 	private boolean showLabel = false;
 
 	public ChartModel(String type, String dimension, String format,
 			double width, double height) {
 		this.type = type.toUpperCase();
-		this.dimension = dimension.toUpperCase();
-		this.format = format.toUpperCase();
+		if (dimension == null) {
+			this.dimension = DIMENSION_2D;
+		} else {
+			this.dimension = dimension.toUpperCase();
+		}
+		if (format == null) {
+			this.format = "PNG";
+		} else {
+			this.format = format.toUpperCase();
+		}
 		this.width = width;
 		this.height = height;
 	}
@@ -63,7 +71,7 @@ public class ChartModel {
 	public List<ChartDataSet> getDatasets() {
 		return datasets;
 	}
-	
+
 	/**
 	 * @return the seriesNames
 	 */

@@ -95,8 +95,10 @@ XMLWriter = function() {
 }
 
 XMLWriter.prototype = {
-	attribute : function(attName, attValue) {
-		this.buf.append(' ' + attName + "=\"" + attValue + '\"');
+	attribute : function(attName, attValue, defaultValue) {
+		if (!defaultValue || attValue != defaultValue) {
+			this.buf.append(' ' + attName + "=\"" + attValue + '\"');
+		}
 	},
 	openTag : function(tagName) {
 		if (!this.bPairedFlag) {
@@ -127,22 +129,26 @@ XMLWriter.prototype = {
 }
 
 ChartModel = function(width, height) {
-	this.type = "Bar";
+	this.type = "bar";
 	this.format = "png";
 	this.dimension = "2d";
 	this.width = width;
 	this.height = height;
+	this.colorByCategory = true;
+	this.showLabel = false;
+	this.showLegend = true;
+	this.stacked = false;
 }
 
 ChartModel.prototype = {
 	setFormat : function(format) {
-		this.format = format;
+		this.format = format.toLowerCase();
 	},
 	setType : function(type) {
-		this.type = type;
+		this.type = type.toLowerCase();
 	},
 	setDimension : function(dimension) {
-		this.dimension = dimension;
+		this.dimension = dimension.toLowerCase();
 	},
 	setStacked : function(stacked) {
 		this.stacked = stacked;
@@ -201,15 +207,15 @@ ChartModel.prototype = {
 		var writer = new XMLWriter();
 		writer.openTag("chart");
 		writer.attribute("type", this.type);
-		writer.attribute("format", this.format);
+		writer.attribute("format", this.format, 'png');
 		writer.attribute("width", this.width);
 		writer.attribute("height", this.height);
-		writer.attribute("dimension", this.dimension);
+		writer.attribute("dimension", this.dimension, '2d');
 		writer.attribute("title", this.title);
-		writer.attribute("stacked", this.stacked);
-		writer.attribute("colorByCategory", this.colorByCategory);
-		writer.attribute("showLegend", this.showLegend);
-		writer.attribute("showLabel", this.showLabel);
+		writer.attribute("stacked", this.stacked, "false");
+		writer.attribute("colorByCategory", this.colorByCategory, "true");
+		writer.attribute("showLegend", this.showLegend, "true");
+		writer.attribute("showLabel", this.showLabel, "false");
 
 		var categoryLength = 0;
 		if (this.categories) {
@@ -242,7 +248,7 @@ ChartModel.prototype = {
 					writer.attribute("tooltip", this.tooltips[i]);
 				}
 				writer.closeTag("set");
-				
+
 				if ((i + 1) % categoryLength == 0) {
 					writer.closeTag("dataset");
 				}
