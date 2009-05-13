@@ -75,7 +75,7 @@ public class ChartServlet extends HttpServlet
 			}
 			if ( cm != null )
 			{
-				ChartImageManager imageManager = new ChartImageManager( request.getSession( ),
+				ChartImageManager imageManager = new ChartImageManager( request,
 						cm,
 						chart.getFormat( ),
 						ChartConvertor.convertToEvaluator( chart ),

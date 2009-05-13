@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Total time test</title>
 <script type="text/javascript" src="../js/chartAjaxAPI.js"></script>
@@ -16,8 +17,12 @@ function generateChart()
 	cm.setTitle('Total time test');
 	cm.setCategories('10 data, 100 data, 1000 data');
 	cm.setValues('230.4, 400.2, 1759.3, 232.4, 300.4, 1580.8, 205.42, 326.74, 1689.93, 170.44, 341.43, 1809.62');
-	cm.setSeriesNames('Data API 1 chart, Data API 10 charts, Data URL 1 chart, Data URL 10 charts');
-	cm.setScript("function beforeDrawMarker(marker, dph, icsc){importPackage (Packages.org.eclipse.birt.chart.model.attribute); marker.setType(MarkerType.CROSSHAIR_LITERAL);}");
+	cm.setSeriesNames('Data API 1 chart,Data API 10 charts,Data URL 1 chart,Data URL 10 charts');
+	var chartScript = "function beforeDrawMarker(marker, dph, icsc){if(dph==null) return; importPackage (Packages.org.eclipse.birt.chart.model.attribute); "
+		+	"if(dph.getSeriesValue()=='Data API 1 chart') marker.setType(MarkerType.CROSSHAIR_LITERAL); "
+		+	"else if(dph.getSeriesValue()=='Data API 10 charts') marker.setType(MarkerType.DIAMOND_LITERAL); "
+		+	"else if(dph.getSeriesValue()=='Data URL 1 chart') marker.setType(MarkerType.NABLA_LITERAL); }";
+	cm.setScript(chartScript);
 	var chart = new BirtChart();
 	chart.setDataXML(cm);
 	chart.render("chartDiv");
@@ -26,4 +31,5 @@ function generateChart()
 </head>
 <body onload="generateChart()">
 <div id="chartDiv"></div>
-</body></html>
+</body>
+</html>
