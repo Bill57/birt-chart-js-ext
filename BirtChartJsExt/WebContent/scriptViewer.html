@@ -1,0 +1,28 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Script viewer</title>
+<script type="text/javascript" src="js/chartAjaxAPI.js"></script>
+</head>
+<body>
+<textarea id="xml" rows="15" cols="100">var cm = new ChartModel (400,300);
+cm.setType('tube');
+cm.setFormat('svg');
+cm.setDimension('2.5d');
+cm.setStacked(false);
+cm.setColorByCategory(true);
+cm.setShowLabel(true);
+cm.setShowLegend(true);
+cm.setTitle('World Population');
+cm.setCategories('China,EU,USA');
+cm.setValues('1300000000,728000000,300000000');
+	
+var chart = new BirtChart();
+chart.setDataXML(cm);
+chart.render("chartDiv");
+</textarea><br>
+<script type="text/javascript">var defaultXML = document.getElementById('xml').value;</script>
+<input type="button" value="Run" onclick="eval(document.getElementById('xml').value)"></input>
+<input type="button" value="Reset sample" onclick="document.getElementById('xml').value=defaultXML"></input><br>
+Note that the name of div object below is "chartDiv".<br>
+<div id="chartDiv"></div>
+</body></html>
