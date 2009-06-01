@@ -7,8 +7,9 @@ This page lists all available js APIs.
 
 
 = Samples =
-There are two approaches to generate chart. There must be a div object in HTML body to display the chart image. In sample code, we give the name "chartDiv" here.
+There are two approaches to generate chart. They are API approach and URL approach. No matter which approach is used, there must be a div object in HTML body to display the chart image. In sample code, we give the name "chartDiv" here.
 == API approach ==
+This approach uses pure javascript to generate chart.
 ===Javascript code===
 {{{
 	var cm = new ChartModel (400,300);
@@ -28,7 +29,7 @@ There are two approaches to generate chart. There must be a div object in HTML b
 	chart.render("chartDiv");
 }}}
 == URL approach ==
-For URL approach, there must be a XML file to store the chart properties.
+In URL approach, there must be a XML file to store the chart properties.
 ===Javascript code===
 {{{
 	var chart = new BirtChart();
