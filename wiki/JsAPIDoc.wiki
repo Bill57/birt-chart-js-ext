@@ -60,6 +60,26 @@ In URL approach, there must be a XML file to store the chart properties.
 == ChartModel ==
 This class stores the chart properties, and is only useful for API approach.
 === Constructor ===
+||*Attribute name*||*Type*||*Description*||
+||Width||double||width of chart image in pixels||
+||Height||double||height of chart image in pixels||
 
+=== Methods ===
+||*Method name*||*Attribute type*||Default value||*Range*||*Description*||
+||setFormat||string||PNG||SVG,PNG,JPG,BMP,GIF||set the output format of chart image||
+||setType||string||BAR||BAR,PYRAMID,CONE,TUBE,LINE,AREA,SCATTER,PIE||set the chart type||
+||setDimension||string||2D||2D,2.5D,3D||set the chart dimension||
+||setStacked||boolean||false|| ||set the stacked state of multiple series||
+||setColorByCategory||boolean||true|| ||set whether series color varies by category||
+||setShowLegend||boolean||true|| ||set whether legend is visible||
+||setShowLabel||boolean||false|| ||set whether series label is visible||
+||setTitle||string|| || ||set the chart title||
+||setScript||string|| || ||set the script executed in runtime||
+||setCategories||string or string array|| || ||set the chart categories. If it's a string, it should be separated by comma.||
+||setValues||string or string array|| || ||set the chart values. If it's a string, it should be separated by comma. The length of values must be multiple length of categories.||
+||setTooltips||string or string array|| || ||set the tooltips of data point. The length of array must be equal with values.||
+||setURLs||string or string array|| || ||set the hyperlink of data point. The length of array must be equal with values.||
+||setSeriesNames||string or string array|| || ||set the series name of each series. This only works when colorByCategory is false, otherwise the series name is category name. The length of array should be equal with values length divided by categories length.||
+||getXML|| || || ||get the XML content of current chart model.||
 == BirtChart ==
 = XML Documentation =
