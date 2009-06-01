@@ -1,0 +1,64 @@
+#summary Introduce how to use js API to generate chart in web pages.
+#labels Featured,Phase-Implementation
+
+= Introduction =
+
+This page lists all available js APIs.
+
+
+= Samples =
+There are two approaches to generate chart. There must be a div object in HTML body to display the chart image. In sample code, we give the name "chartDiv" here.
+== API approach ==
+===Javascript code===
+{{{
+	var cm = new ChartModel (400,300);
+	cm.setType('tube');
+	cm.setFormat('svg');
+	cm.setDimension('2.5d');
+	cm.setStacked(false);
+	cm.setColorByCategory(true);
+	cm.setShowLabel(true);
+	cm.setShowLegend(true);
+	cm.setTitle('World Population');
+	cm.setCategories('China,EU,USA');
+	cm.setValues('1300000000,728000000,300000000');
+	
+	var chart = new BirtChart();
+	chart.setDataXML(cm);
+	chart.render("chartDiv");
+}}}
+== URL approach ==
+For URL approach, there must be a XML file to store the chart properties.
+===Javascript code===
+{{{
+	var chart = new BirtChart();
+	chart.setDataURL("xmls/WorldPopulation.xml");
+	chart.render("chartDiv");
+}}}
+===XML content===
+{{{
+<chart type='bar' title='3D Bar Chart' dimension='3d' format='png' width='500' height='400' showLegend="true" >
+<categories>
+<category label='Australia'/>
+<category label='China'/>
+<category label='USA'/>
+</categories>
+<dataset name="Population">
+<set value='250' />
+<set value='800' />
+<set value='500' />
+</dataset>
+<dataset name="Area">
+<set value='300' />
+<set value='400' />
+<set value='600' />
+</dataset>
+</chart>
+}}}
+= JS API Documentation =
+== ChartModel ==
+This class stores the chart properties, and is only useful for API approach.
+=== Constructor ===
+
+== BirtChart ==
+= XML Documentation =
