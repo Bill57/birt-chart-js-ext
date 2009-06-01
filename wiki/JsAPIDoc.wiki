@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This page lists all available js APIs.
+This page lists the samples and documentations of all available js APIs and XML file.
 
 
 = Samples =
@@ -97,3 +97,37 @@ This class is used to generate chart image.
 ||render||string||Set the name of div object which will display chart image.||
 
 = XML Documentation =
+== chart element ==
+This element can contain categories, dataset and script elements. It also has following attributes:
+||*Attribute name*||*Type*||Default value||*Range*||*Description*||
+||format||string||PNG||SVG,PNG,JPG,BMP,GIF||Set the output format of chart image||
+||type||string||BAR||BAR,PYRAMID,CONE,TUBE,LINE,AREA,SCATTER,PIE||Set the chart type||
+||dimension||string||2D||2D,2.5D,3D||Set the chart dimension||
+||stacked||boolean||false|| ||Set the stacked state of multiple series||
+||colorByCategory||boolean||true|| ||Set whether series color varies by category||
+||showLegend||boolean||true|| ||Set whether legend is visible||
+||showLabel||boolean||false|| ||Set whether series label is visible||
+||title||string||_optional_|| ||Set the chart title||
+
+== categories element ==
+This element can contain category element. It doesn't have attribute.
+
+== category element ==
+This element has following attributes:
+||*Attribute name*||*Type*||Default value||*Range*||*Description*||
+||label||string|| ||  ||Set the label of category||
+
+== dataset element ==
+This element can contain set element. It has following attributes:
+||*Attribute name*||*Type*||Default value||*Range*||*Description*||
+||name||string||_optional_||  ||Set the series name||
+
+== set element ==
+This element has following attributes:
+||*Attribute name*||*Type*||Default value||*Range*||*Description*||
+||value||double or datetime|| ||  ||Set the value of current data point||
+||tooltip||string||_optional_||  ||Set the tooltip of current data point||
+||url||string||_optional_||  ||Set the url of current data point||
+
+== script element ==
+This element can contain script content directly.
