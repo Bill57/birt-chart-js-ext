@@ -1,5 +1,5 @@
 #summary Introduce how to use js API to generate chart in web pages.
-#labels Featured,Phase-Implementation
+#labels Featured,Phase-Implementation,Phase-Requirements
 
 = Introduction =
 
@@ -12,29 +12,29 @@ There are two approaches to generate chart. They are API approach and URL approa
 This approach uses pure javascript to generate chart.
 ===Javascript code===
 {{{
-	var cm = new ChartModel (400,300);
-	cm.setType('tube');
-	cm.setFormat('svg');
-	cm.setDimension('2.5d');
-	cm.setStacked(false);
-	cm.setColorByCategory(true);
-	cm.setShowLabel(true);
-	cm.setShowLegend(true);
-	cm.setTitle('World Population');
-	cm.setCategories('China,EU,USA');
-	cm.setValues('1300000000,728000000,300000000');
+var cm = new ChartModel (400,300);
+cm.setType('tube');
+cm.setFormat('svg');
+cm.setDimension('2.5d');
+cm.setStacked(false);
+cm.setColorByCategory(true);
+cm.setShowLabel(true);
+cm.setShowLegend(true);
+cm.setTitle('World Population');
+cm.setCategories('China,EU,USA');
+cm.setValues('1300000000,728000000,300000000');
 	
-	var chart = new BirtChart();
-	chart.setDataXML(cm);
-	chart.render("chartDiv");
+var chart = new BirtChart();
+chart.setDataXML(cm);
+chart.render("chartDiv");
 }}}
 == URL approach ==
 In URL approach, there must be a XML file to store the chart properties.
 ===Javascript code===
 {{{
-	var chart = new BirtChart();
-	chart.setDataURL("xmls/WorldPopulation.xml");
-	chart.render("chartDiv");
+var chart = new BirtChart();
+chart.setDataURL("xmls/WorldPopulation.xml");
+chart.render("chartDiv");
 }}}
 ===XML content===
 {{{
