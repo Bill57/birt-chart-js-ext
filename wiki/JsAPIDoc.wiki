@@ -73,14 +73,14 @@ This class stores the chart properties, and is only useful for API approach.
 ||setColorByCategory||boolean||true|| ||Set whether series color varies by category||
 ||setShowLegend||boolean||true|| ||Set whether legend is visible||
 ||setShowLabel||boolean||false|| ||Set whether series label is visible||
-||setTitle||string|| || ||Set the chart title||
-||setScript||string|| || ||Set the script executed in runtime||
+||setTitle||string||_optional_|| ||Set the chart title||
+||setScript||string||_optional_|| ||Set the script executed in runtime||
 ||setCategories||string or string array|| || ||Set the chart categories. If it's a string, it should be separated by comma.||
-||setValues||string or string array|| || ||Set the chart values. If it's a string, it should be separated by comma. The length of values must be multiple length of categories.||
-||setTooltips||string or string array|| || ||Set the tooltips of data point. The length of array must be equal with values.||
-||setURLs||string or string array|| || ||Set the hyperlink of data point. The length of array must be equal with values.||
-||setSeriesNames||string or string array|| || ||Set the series name of each series. This only works when colorByCategory is false, otherwise the series name is category name. The length of array should be equal with values length divided by categories length.||
-||getXML|| || || ||Get the XML content of current chart model.||
+||setValues||string or string array|| || ||Set the chart values. If it's a string, it should be separated by comma. The length of values can be equal or multiple to the length of categories.||
+||setTooltips||string or string array||_optional_|| ||Set the tooltips of data point. If it's a string, it should be separated by comma. The length of array must be equal with values.||
+||setURLs||string or string array||_optional_|| ||Set the hyperlink of data point. If it's a string, it should be separated by comma. The length of array must be equal with values.||
+||setSeriesNames||string or string array||_optional_|| ||Set the series name of each series. If it's a string, it should be separated by comma. This only works when colorByCategory is false, otherwise the series name is category name. The length of array should be equal with values length divided by categories length.||
+||getXML||string|| || ||Get the XML content of current chart model.||
 
 == BirtChart ==
 This class is used to generate chart image.
