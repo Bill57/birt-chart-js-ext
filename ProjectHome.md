@@ -1,0 +1,1 @@
+This project aims to expose javascript API to generated BIRT chart images in web pages, based on open source technologies.
